@@ -14,7 +14,7 @@
 	<name>reserve-sonic</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
-		<java.version>15.0.2</java.version>
+		<java.version>15</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -54,6 +54,11 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.thymeleaf</groupId>
+			<artifactId>thymeleaf-spring5</artifactId>
+			<version>3.0.12.RELEASE</version>
 		</dependency>
 	</dependencies>
 
