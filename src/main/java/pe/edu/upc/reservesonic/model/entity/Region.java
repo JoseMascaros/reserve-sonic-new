@@ -20,13 +20,13 @@ public class Region {
 	private String name;
 
 	// OneToMany relationships
-	// @OneToMany(mappedBy = "region")
-	// private List<District> districts;
+	@OneToMany(mappedBy = "region")
+	private List<District> districts;
 
 	// Constructor, getters & setters
 	public Region() {
 		super();
-		// districts = new ArrayList<District>();
+		districts = new ArrayList<District>();
 	}
 
 	public String getId() {
@@ -45,12 +45,12 @@ public class Region {
 		this.name = name;
 	}
 
-	// public List<District> getDistricts() {
-	// return districts;
-	// }
+	public List<District> getDistricts() {
+		return districts;
+	}
 
-	// public void setDistricts(List<District> districts) {
-	// this.districts = districts;
-	// }
+	public void setDistricts(List<District> districts) {
+		this.districts = districts;
+	}
 
 }
