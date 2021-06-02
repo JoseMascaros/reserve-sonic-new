@@ -11,8 +11,8 @@ import javax.persistence.Table;
 @Table(name = "reviews")
 public class Review {
 	@Id
-	@Column(name = "review_id", length = 5, nullable = false)
-	private String id;
+	@Column(name = "review_id", columnDefinition = "NUMERIC(4)", nullable = false)
+	private Integer id;
 
 	@Column(name = "content", length = 50, nullable = false)
 	private String name;
@@ -31,11 +31,11 @@ public class Review {
 		// To do
 	}
 
-	public String getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

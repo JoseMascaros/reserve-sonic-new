@@ -15,10 +15,10 @@ import javax.persistence.Table;
 @Table(name = "rooms")
 public class Room {
 	@Id
-	@Column(name = "room_id")
+	@Column(name = "room_id", columnDefinition = "NUMERIC(4)")
 	private Integer id;
 
-	@Column(name = "capacity", length = 2, nullable = false)
+	@Column(name = "capacity", columnDefinition = "NUMERIC(4)", nullable = false)
 	private Integer capacity;
 
 	// OneToMany relationships

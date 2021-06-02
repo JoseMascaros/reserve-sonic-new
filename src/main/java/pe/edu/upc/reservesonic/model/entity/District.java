@@ -15,8 +15,8 @@ import javax.persistence.Table;
 @Table(name = "districts")
 public class District {
 	@Id
-	@Column(name = "district_id", length = 5, nullable = false)
-	private String id;
+	@Column(name = "district_id", columnDefinition = "NUMERIC(4)", nullable = false)
+	private Integer id;
 
 	@Column(name = "name", length = 50, nullable = false)
 	private String name;
@@ -43,11 +43,11 @@ public class District {
 		studios = new ArrayList<Studio>();
 	}
 
-	public String getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
