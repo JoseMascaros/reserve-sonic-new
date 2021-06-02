@@ -15,7 +15,7 @@ import javax.persistence.Table;
 @Table(name = "studios")
 public class Studio {
 	@Id
-	@Column(name = "studio_id")
+	@Column(name = "studio_id", columnDefinition = "NUMERIC(4)")
 	private Integer id;
 
 	@Column(name = "name", length = 40)

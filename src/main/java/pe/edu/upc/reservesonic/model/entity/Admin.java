@@ -13,10 +13,10 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "admins")
-public class Admin {
+public class Admin { //Owner
 	@Id
-	@Column(name = "admin_id", length = 4, nullable = false)
-	private String id;
+	@Column(name = "admin_id", columnDefinition = "NUMERIC(4)", nullable = false)
+	private Integer id;
 
 	@Column(name = "name", length = 50, nullable = false)
 	private String name;
@@ -41,11 +41,11 @@ public class Admin {
 		studios = new ArrayList<Studio>();
 	}
 
-	public String getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

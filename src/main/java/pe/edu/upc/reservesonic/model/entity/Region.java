@@ -13,8 +13,8 @@ import javax.persistence.Table;
 @Table(name = "regions")
 public class Region {
 	@Id
-	@Column(name = "region_id", length = 5, nullable = false)
-	private String id;
+	@Column(name = "region_id", columnDefinition = "NUMERIC(4)", nullable = false)
+	private Integer id;
 
 	@Column(name = "name", length = 50, nullable = false)
 	private String name;
@@ -29,11 +29,11 @@ public class Region {
 		districts = new ArrayList<District>();
 	}
 
-	public String getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
