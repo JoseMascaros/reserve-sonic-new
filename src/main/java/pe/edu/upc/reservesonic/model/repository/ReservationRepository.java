@@ -9,3 +9,5 @@ import pe.edu.upc.reservesonic.model.entity.Reservation;
 public interface ReservationRepository extends JpaRepository<Reservation, Integer> {
 
 }
+
+

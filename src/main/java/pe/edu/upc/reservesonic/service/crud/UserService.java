@@ -1,5 +1,7 @@
 package pe.edu.upc.reservesonic.service.crud;
 
-public interface UserService {
+import pe.edu.upc.reservesonic.model.entity.User;
+
+public interface UserService extends CrudService<User,Integer>{
 
 }
