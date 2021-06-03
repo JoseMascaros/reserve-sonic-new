@@ -11,12 +11,14 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import pe.edu.upc.reservesonic.model.entity.Instrument;
 import pe.edu.upc.reservesonic.service.crud.InstrumentService;
 
 @Controller
 @RequestMapping("/instruments")
+@SessionAttributes("instrumentEdit")
 public class InstrumentController {
 	@Autowired
 	private InstrumentService instrumentService;
