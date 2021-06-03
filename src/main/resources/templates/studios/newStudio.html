@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
 
 <head>
 	<meta charset="utf-8">
@@ -43,8 +43,6 @@
 
 					<form th:action="@{/studios/savenew}" th:object="${studioNew}" method="post">
 						<div class="mb-3">
-							<label for="id" class="form-label">ID</label>
-							<input type="number" class="form-control" th:field="*{id}" placeholder="ID of Studio">
 
 							<label for="name" class="form-label">Name</label> <input type="text" class="form-control"
 								th:field="*{name}" placeholder="Name of Studio">

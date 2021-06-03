@@ -11,13 +11,16 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import pe.edu.upc.reservesonic.model.entity.Studio;
 import pe.edu.upc.reservesonic.service.crud.StudioService;
 
 @Controller
 @RequestMapping("/studios")
+@SessionAttributes("studioEdit")
 public class StudioController {
+
 	@Autowired
 	private StudioService studioService;
 
@@ -31,47 +34,6 @@ public class StudioController {
 			System.err.println(e.getMessage());
 		}
 		return "studios/listStudio";
-	}
-
-	@PostMapping("save")
-	public String saveEdit(Model model, @ModelAttribute("studioEdit") Studio studio) {
-		try {
-			Studio studioReturn = studioService.update(studio);
-			model.addAttribute("studio", studioReturn);
-			return "studios/viewStudio";
-		} catch (Exception e) {
-			e.printStackTrace();
-			System.err.println(e.getMessage());
-		}
-		return "redirect:/studios";
-	}
-
-	@GetMapping("new")
-	public String newStudio(Model model) {
-		try {
-			Studio studio = new Studio();
-			model.addAttribute("studioNew", studio);
-			return "studios/newStudio";
-		} catch (Exception e) {
-			e.printStackTrace();
-			System.err.println(e.getMessage());
-		}
-
-		return "redirect:/studios";
-	}
-
-	@PostMapping("savenew")
-	public String saveNew(Model model, @ModelAttribute("studioNew") Studio studio) {
-		try {
-			Studio studioReturn = studioService.create(studio);
-			model.addAttribute("studio", studioReturn);
-			return "studios/viewStudio";
-		} catch (Exception e) {
-			e.printStackTrace();
-			System.err.println(e.getMessage());
-		}
-
-		return "redirect:/studios";
 	}
 
 	// Id's
@@ -102,6 +64,47 @@ public class StudioController {
 			e.printStackTrace();
 			System.err.println(e.getMessage());
 		}
+		return "redirect:/studios";
+	}
+
+	@PostMapping("save")
+	public String saveEdit(Model model, @ModelAttribute("studioEdit") Studio studio) {
+		try {
+			Studio studioReturn = studioService.update(studio);
+			model.addAttribute("studio", studioReturn);
+			return "studios/viewStudio";
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.err.println(e.getMessage());
+		}
+		return "redirect:/studios";
+	}
+
+	@GetMapping("new")
+	public String newItem(Model model) {
+		try {
+			Studio studio = new Studio();
+			model.addAttribute("studioNew", studio);
+			return "studios/newStudio";
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.err.println(e.getMessage());
+		}
+
+		return "redirect:/studios";
+	}
+
+	@PostMapping("savenew")
+	public String saveNew(Model model, @ModelAttribute("studioNew") Studio studio) {
+		try {
+			Studio studioReturn = studioService.create(studio);
+			model.addAttribute("studio", studioReturn);
+			return "studios/viewStudio";
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.err.println(e.getMessage());
+		}
+
 		return "redirect:/studios";
 	}
 
