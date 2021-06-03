@@ -12,17 +12,17 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "instruments")
-@SequenceGenerator(name = "sequenceInstrument", sequenceName = "Instruments_instrument_id_seq", initialValue = 5, allocationSize = 1)
+@SequenceGenerator(name = "sequenceInstrument", sequenceName = "Instruments_instrument_id_seq", initialValue = 1, allocationSize = 1)
 public class Instrument {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequenceInstrument")
-	@Column(name = "instrument_id", columnDefinition = "NUMERIC(4)", nullable = false)
+	@Column(name = "instrument_id", columnDefinition = "DECIMAL(4)")
 	private Integer id;
 
-	@Column(name = "name", length = 20, nullable = false)
+	@Column(name = "name", length = 20)
 	private String name;
 
-	@Column(name = "brand", length = 20, nullable = false)
+	@Column(name = "brand", length = 20)
 	private String brand;
 
 	@Column(name = "description", length = 120)
@@ -30,7 +30,7 @@ public class Instrument {
 
 	// ManyToOne relationships
 	@ManyToOne
-	@JoinColumn(name = "room_id", nullable = false)
+	@JoinColumn(name = "room_id")
 	private Room room;
 
 	// Constructor, getters & setters
