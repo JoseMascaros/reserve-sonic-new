@@ -1,12 +1,14 @@
 package pe.edu.upc.reservesonic.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -69,6 +71,37 @@ public class StudioController {
 			System.err.println(e.getMessage());
 		}
 		
+		return "redirect:/studios";
+	}
+	
+	//Id's
+	@GetMapping("{id}") // GET: /studios/{id}
+	public String findById(Model model, @PathVariable("id") Integer id) {
+		try {
+			Optional<Studio> optional = studioService.findById(id);
+			if(optional.isPresent()) {
+				model.addAttribute("studio", optional.get());
+				return "studios/view";
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.err.println(e.getMessage());
+		}
+		return "redirect:/studios";	
+	}
+	
+	@GetMapping("{id}/edit") // GET: /studios/{id}/edit
+	public String findById2(Model model, @PathVariable("id") Integer id) {
+		try {
+			Optional<Studio> optional = studioService.findById(id);
+			if(optional.isPresent()) {
+				model.addAttribute("studioEdit", optional.get());
+				return "studios/edit";
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.err.println(e.getMessage());
+		}
 		return "redirect:/studios";
 	}
     
