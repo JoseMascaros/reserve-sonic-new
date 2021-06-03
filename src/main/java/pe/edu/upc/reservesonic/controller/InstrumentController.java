@@ -18,7 +18,7 @@ import pe.edu.upc.reservesonic.service.crud.InstrumentService;
 public class InstrumentController {
 	@Autowired
 	private InstrumentService instrumentService;
-	
+
 	@GetMapping
 	public String list(Model model) {
 		try {
@@ -28,23 +28,23 @@ public class InstrumentController {
 			e.printStackTrace();
 			System.err.println(e.getMessage());
 		}
-		
-		return "rooms/listInstruments";
+
+		return "instruments/listInstruments";
 	}
-	
+
 	@PostMapping("save")
 	public String saveEdit(Model model, @ModelAttribute("instrumentEdit") Instrument instrument) {
 		try {
 			Instrument instrumentReturn = instrumentService.update(instrument);
 			model.addAttribute("instrument", instrumentReturn);
 			return "instruments/view";
-		} catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 			System.err.println(e.getMessage());
 		}
 		return "redirect:/instruments";
 	}
-	
+
 	@GetMapping("new")
 	public String newInstrument(Model model) {
 		try {
@@ -55,10 +55,10 @@ public class InstrumentController {
 			e.printStackTrace();
 			System.err.println(e.getMessage());
 		}
-		
+
 		return "redirect:/instruments";
 	}
-	
+
 	@PostMapping("savenew")
 	public String saveNew(Model model, @ModelAttribute("isntrumentNew") Instrument instrument) {
 		try {
@@ -69,7 +69,7 @@ public class InstrumentController {
 			e.printStackTrace();
 			System.err.println(e.getMessage());
 		}
-		
+
 		return "redirect:/instruments";
 	}
 }
