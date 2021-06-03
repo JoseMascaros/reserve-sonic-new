@@ -8,7 +8,7 @@
 	<link th:href="@{/bootstrap/css/fontawesome.min.css}" rel="stylesheet">
 	<link th:href="@{/bootstrap/css/solid.min.css}" rel="stylesheet">
 	<link rel="stylesheet" th:href="@{css/master.css}" />
-	<title>Reserve Sonic - Studios</title>
+	<title>Reserve Sonic - Rooms</title>
 </head>
 
 <body>
@@ -37,7 +37,7 @@
 
 				<div class="row">
 					<h2 class="pg_title">
-						Studios
+						Rooms
 					</h2>
 				</div>
 
@@ -45,13 +45,13 @@
 					<thead>
 						<tr>
 							<th scope="col">#</th>
-							<th scope="col">Name</th>
+							<th scope="col">Capacity</th>
 						</tr>
 					</thead>
 					<tbody>
-						<tr th:each="studio : ${studios}">
-							<th th:text="${studio.id}" scope="row">1</th>
-							<td th:text="${studio.name}">Mark</td>
+						<tr th:each="room : ${rooms}">
+							<th th:text="${room.id}" scope="row">1</th>
+							<td th:text="${room.capacity}">Mark</td>
 						</tr>
 					</tbody>
 				</table>
