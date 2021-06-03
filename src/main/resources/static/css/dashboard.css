@@ -1,10 +1,13 @@
 .search {
   background-color: #fc5e32 !important;
   min-width: 150px !important;
+  max-width: 350px !important;
+  color: white;
 }
 
 .search_input {
   min-width: 200px;
+  max-width: 350px !important;
   box-shadow: 0px 0px 4px rgba(83, 83, 83, 0.432);
   border-radius: 20px !important;
 }
