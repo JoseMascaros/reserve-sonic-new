@@ -1,12 +1,14 @@
 package pe.edu.upc.reservesonic.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -70,6 +72,37 @@ public class InstrumentController {
 			System.err.println(e.getMessage());
 		}
 
+		return "redirect:/instruments";
+	}
+
+	// Id's
+	@GetMapping("{id}") // GET: /instruments/{id}
+	public String findById(Model model, @PathVariable("id") Integer id) {
+		try {
+			Optional<Instrument> optional = instrumentService.findById(id);
+			if (optional.isPresent()) {
+				model.addAttribute("instrument", optional.get());
+				return "instruments/view";
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.err.println(e.getMessage());
+		}
+		return "redirect:/instruments";
+	}
+
+	@GetMapping("{id}/edit") // GET: /instruments/{id}/edit
+	public String findById2(Model model, @PathVariable("id") Integer id) {
+		try {
+			Optional<Instrument> optional = instrumentService.findById(id);
+			if (optional.isPresent()) {
+				model.addAttribute("instrumentEdit", optional.get());
+				return "instruments/edit";
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.err.println(e.getMessage());
+		}
 		return "redirect:/instruments";
 	}
 }
