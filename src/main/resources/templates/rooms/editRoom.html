@@ -45,21 +45,18 @@
 			<div class="col-6">
 
 				<div class="row">
-					<h2 class="pg_title">New Room</h2>
+					<h2 class="pg_title">Edit Room</h2>
 				</div>
 
 				<div class="card-body">
-
-					<form th:action="@{/rooms/savenew}" th:object="${roomNew}" method="post">
+					<form th:action="@{/rooms/save}" th:object="${roomEdit}" method="post">
 						<div class="mb-3">
 
-							<label for="capacity" class="form-label">Capacity</label> <input type="text"
-								class="form-control" th:field="*{capacity}" placeholder="Capacity of Room">
-
-
+							<label for="capacity" class=" form-label">Capacity</label>
+							<input type="text" class="form-control" th:field="*{capacity}" placeholder="Name of Room">
 						</div>
 
-						<button type="submit" class="btn og_btn">Save</button>
+						<button type="submit" class="btn btn-primary">Update</button>
 					</form>
 					<br> <a th:href="@{/rooms}" class="btn og_btn"> <i class="fas fa-angle-double-left"></i>
 						Return

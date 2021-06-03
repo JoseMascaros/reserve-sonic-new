@@ -44,50 +44,37 @@
         </div>
     </nav> -->
 
-    <div class="d-flex flex-column flex-shrink-0 p-3 bg-light" style="width: 280px;">
-        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none logo">
-            <img src="../static/images/reserve_sonic_logo.png" th:src="@{images/reserve_sonic_logo.png}"></img>
+    <div class="d-flex flex-column p-3 bg-white shadow_nav justify-content-center text-center"
+        style="width: 460px; height: 100vh;">
+        <a href="/"
+            class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none logo text-center justify-content-center">
+            <img src="../static/images/reserve_sonic_logo.png" th:src="@{images/reserve_sonic_logo.png}"
+                class=" justify-content-center"></img>
         </a>
         <hr>
         <ul class="nav nav-pills flex-column mb-auto">
-            <li class="nav-item">
+            <li class="nav-item mt-3 mb-2">
                 <a href="#" class="nav-link active" aria-current="page">
-                    <svg class="bi me-2" width="16" height="16">
-                        <use xlink:href="/dashboard" />
-                    </svg>
+                    <i class="fas fa-home"></i>
                     Home
                 </a>
             </li>
-            <li>
+            <li class="nav-item my-2">
                 <a href="#" class="nav-link link-dark">
-                    <svg class="bi me-2" width="16" height="16">
-                        <use xlink:href="#speedometer2" />
-                    </svg>
-                    Dashboard
+                    <i class="fas fa-history"></i>
+                    Historial
                 </a>
             </li>
-            <li>
+            <li class="nav-item my-2">
                 <a href="#" class="nav-link link-dark">
-                    <svg class="bi me-2" width="16" height="16">
-                        <use xlink:href="#table" />
-                    </svg>
-                    Orders
+                    <i class="far fa-star"></i>
+                    Favoritos
                 </a>
             </li>
-            <li>
+            <li class="nav-item my-2">
                 <a href="#" class="nav-link link-dark">
-                    <svg class="bi me-2" width="16" height="16">
-                        <use xlink:href="#grid" />
-                    </svg>
-                    Products
-                </a>
-            </li>
-            <li>
-                <a href="#" class="nav-link link-dark">
-                    <svg class="bi me-2" width="16" height="16">
-                        <use xlink:href="#people-circle" />
-                    </svg>
-                    Customers
+                    <i class="fas fa-cogs"></i>
+                    Ajustes
                 </a>
             </li>
         </ul>
@@ -108,6 +95,17 @@
                 <li><a class="dropdown-item" href="#">Sign out</a></li>
             </ul>
         </div>
+    </div>
+
+
+    <div class="d-flex flex-column p-3 bg-white shadow_nav justify-content-center text-center"
+        style="width: 460px; height: 100vh;">
+
+    </div>
+    <!--Search bar-->
+    <div class="container">
+        <input class="form-control mr-sm-2 search_input" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn my-2 my-sm-0 search" type="submit">Search</button>
     </div>
 
 
