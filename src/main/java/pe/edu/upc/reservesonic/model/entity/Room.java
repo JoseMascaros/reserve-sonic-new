@@ -5,17 +5,22 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "rooms")
+@SequenceGenerator(name = "sequenceRoom", sequenceName = "Rooms_room_id_seq", initialValue = 5, allocationSize = 1)
 public class Room {
 	@Id
-	@Column(name = "room_id", columnDefinition = "NUMERIC(4)")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequenceRoom")
+	@Column(name = "room_id", columnDefinition = "DECIMAL(4)")
 	private Integer id;
 
 	@Column(name = "capacity", columnDefinition = "NUMERIC(4)", nullable = false)
