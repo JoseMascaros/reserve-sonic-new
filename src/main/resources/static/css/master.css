@@ -36,7 +36,7 @@ button {
   color: white !important;
   font-family: 'Ubuntu', sans-serif !important;
   font-weight: 500 !important;
-  border-radius: 25px !important;
+  border-radius: 25px;
 }
 
 .register {
@@ -66,4 +66,34 @@ th,
 thead,
 tr {
   border-style: solid grey !important;
+}
+
+.edit_btn {
+  border: solid 1px #000 !important;
+  border-radius: 5px !important;
+}
+
+.search {
+  border-color: #fc5e32 !important;
+  color: #fc5e32 !important;
+}
+.search:hover {
+  background-color: #fc5e32 !important;
+  color: #fff !important;
+  border: none;
+}
+
+.pencil:hover {
+  background-color: #000 !important;
+  color: #fff !important;
+  border: none;
+}
+
+.og_btn {
+  background-color: #fc5e32 !important;
+  color: #fff !important;
+}
+
+.studio_icon {
+  width: 400px;
 }

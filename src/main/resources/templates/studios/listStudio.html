@@ -7,7 +7,7 @@
 	<link th:href="@{/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
 	<link th:href="@{/bootstrap/css/fontawesome.min.css}" rel="stylesheet">
 	<link th:href="@{/bootstrap/css/solid.min.css}" rel="stylesheet">
-	<link rel="stylesheet" th:href="@{css/master.css}" />
+	<link rel="stylesheet" th:href="@{./css/master.css}" />
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
 		integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 
@@ -43,7 +43,7 @@
 
 	<div class="container">
 		<div class="row">
-			<div class="col-6">
+			<div class="col">
 
 				<div class="row">
 					<h2 class="pg_title">
@@ -56,7 +56,7 @@
 						<tr>
 							<th scope="col">#</th>
 							<th scope="col">Name</th>
-							<th scope="col">District</th>
+							<th scope="col"></th>
 							<th scope="col"></th>
 							<th scope="col"></th>
 							<th scope="col"></th>
@@ -66,19 +66,19 @@
 						<tr th:each="studio : ${studios}">
 							<th th:text="${studio.id}" scope="row">1</th>
 							<td th:text="${studio.name}">Mark</td>
-							<td> <a th:href="@{'/studios/' + ${studio.id}}" class="btn btn-outline-info"> <i
-										class="fas fa-search"></i> </a> </td>
+							<td> <a th:href="@{'/studios/' + ${studio.id}}" class="btn edit_btn search"> <i
+										class="fas fa-search"></i>
+								</a> </td>
 
-							<td> <a th:href="@{'/studios/' + ${studio.id} + '/editStudio'}"
-									class="btn btn-outline-warning">
-									<i class="fas fa-edit"></i> </a></td>
+							<td> <a th:href="@{'/studios/' + ${studio.id} + '/editStudio'}" class="btn edit_btn pencil">
+									<i class="fas fa-pencil-alt"></i> </a></td>
 
-							<td> <a href="#" class="btn btn-danger"> <i class="fas fa-trash-alt"></i> </a></td>
+							<td> <a href="#" class="btn btn-danger"> <i class="far fa-trash-alt"></i> </a></td>
 						</tr>
 					</tbody>
 				</table>
 
-				<a th:href="@{'/studios/new'}" class="btn btn-primary"> <i class="fas fa-plus"></i> New</a>
+				<a th:href="@{'/studios/new'}" class="btn og_btn"> <i class="fas fa-plus"></i> New</a>
 			</div>
 		</div>
 	</div>

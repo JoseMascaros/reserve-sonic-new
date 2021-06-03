@@ -7,15 +7,14 @@
 	<link th:href="@{/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
 	<link th:href="@{/bootstrap/css/fontawesome.min.css}" rel="stylesheet">
 	<link th:href="@{/bootstrap/css/solid.min.css}" rel="stylesheet">
-	<link rel="stylesheet" th:href="@{css/master.css}" />
+	<link rel="stylesheet" th:href="@{/../css/master.css}" />
 	<title>Reserve Sonic - Studios</title>
 </head>
 
 <body>
 
 	<nav class=" navbar navbar-expand-lg navbar-light bg-white mx-5 px-5 pb-5">
-		<a class="navbar-brand logo pe-3" href="/"><img src="../static/images/reserve_sonic_logo.png"
-				th:src="@{images/reserve_sonic_logo.png}"></img></a>
+		<a class="navbar-brand logo pe-3" href="/"><img th:src="@{/../images/reserve_sonic_logo.png}"></img></a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
 			aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
@@ -36,17 +35,25 @@
 			<div class="col-6">
 
 				<div class="row">
-					<h2 class="pg_title">Studios</h2>
+					<h2 class="pg_title pb-4">Studios</h2>
 				</div>
 
-				<div class="card-body">
-					<p>
-						Id: <span th:text="${studio.id}"></span> <br> Name: <span th:text="${studio.name}"></span> <br>
-					</p>
+				<div class="card mb-3 text-center" style="width: 500px;">
+					<img class="card-img-top studio_icon mx-auto pt-3" th:src="@{/../images/ICONSTU.jpg}"
+						alt="Card image cap">
+					<div class="card-body">
+						<h5 class="card-title">Id: <span th:text="${studio.id}"></span> </h5>
+						<h5 class="card-text">Name: <span th:text="${studio.name}"></span></h5>
+					</div>
+				</div>
 
-					<a th:href="@{/studios}" class="btn btn-primary"> <i class="fas fa-angle-double-left"></i> Return
+				<div class="pt-3">
+					<a th:href="@{/studios}" class="btn og_btn" style="width: 500px;"> <i
+							class="fas fa-angle-double-left"></i>
+						Return
 					</a>
 				</div>
+
 
 			</div>
 		</div>
