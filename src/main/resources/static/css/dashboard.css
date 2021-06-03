@@ -8,3 +8,7 @@
   box-shadow: 0px 0px 4px rgba(83, 83, 83, 0.432);
   border-radius: 20px !important;
 }
+
+.shadow_nav {
+  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.377);
+}
