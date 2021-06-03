@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
 	<meta charset="utf-8">
@@ -43,15 +43,18 @@
 
 					<form th:action="@{/studios/savenew}" th:object="${studioNew}" method="post">
 						<div class="mb-3">
-							<label for="name" class="form-label">Name</label> <input type="text" class="form-control"
-								th:field="*{name}" placeholder="Name of Studio">
-							<label for="district" class="form-label">District</label> <input type="text"
-								class="form-control" th:field="*{district}" placeholder="Location of Studio">
+							<label for="id" class="form-label">ID</label>
+							<inpu type="number" class="form-control" th:field="*{id}" placeholder="ID of Studio">
+
+								<label for="name" class="form-label">Name</label> <input type="text"
+									class="form-control" th:field="*{name}" placeholder="Name of Studio">
+
+
 						</div>
 
 						<button type="submit" class="btn btn-primary">Save</button>
 					</form>
-					<br> <a th:href="@{/regions}" class="btn btn-primary"> <i class="fas fa-angle-double-left"></i>
+					<br> <a th:href="@{/studios}" class="btn btn-primary"> <i class="fas fa-angle-double-left"></i>
 						Return
 					</a>
 				</div>
