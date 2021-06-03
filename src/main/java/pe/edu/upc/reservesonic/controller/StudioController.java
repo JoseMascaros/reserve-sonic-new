@@ -18,85 +18,70 @@ import pe.edu.upc.reservesonic.service.crud.StudioService;
 @Controller
 @RequestMapping("/studios")
 public class StudioController {
-    @Autowired
-    private StudioService studioService;
+	@Autowired
+	private StudioService studioService;
 
-    @GetMapping
-    public String list(Model model) {
-        try {
-            List<Studio> studios = studioService.getAll();
-            model.addAttribute("studios", studios);
-        } catch (Exception e) {
-            e.printStackTrace();
-            System.err.println(e.getMessage());
-        }
-        return "studios/listStudios";
-    }
-    
-    @PostMapping("save")
-    public String saveEdit(Model model, @ModelAttribute("studioEdit") Studio studio) {
+	@GetMapping
+	public String list(Model model) {
 		try {
-			Studio studioReturn = studioService.update(studio);
-			model.addAttribute("studio", studioReturn);
-			return "studios/view";
-		} catch(Exception e) {
-			e.printStackTrace();
-			System.err.println(e.getMessage());
-		}
-		return "redirect:/studios";
-	}
-    
-    @GetMapping("new")
-	public String newStudio(Model model) {
-		try {
-			Studio studio = new Studio();
-			model.addAttribute("roomNew", studio);
-			return "studios/new";
+			List<Studio> studios = studioService.getAll();
+			model.addAttribute("studios", studios);
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.err.println(e.getMessage());
 		}
-		
+		return "studios/listStudio";
+	}
+
+	@PostMapping("save")
+	public String saveEdit(Model model, @ModelAttribute("studioEdit") Studio studio) {
+		try {
+			Studio studioReturn = studioService.update(studio);
+			model.addAttribute("studio", studioReturn);
+			return "studios/viewStudio";
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.err.println(e.getMessage());
+		}
 		return "redirect:/studios";
 	}
-    
+
+	@GetMapping("new")
+	public String newStudio(Model model) {
+		try {
+			Studio studio = new Studio();
+			model.addAttribute("studioNew", studio);
+			return "studios/newStudio";
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.err.println(e.getMessage());
+		}
+
+		return "redirect:/studios";
+	}
+
 	@PostMapping("savenew")
 	public String saveNew(Model model, @ModelAttribute("studioNew") Studio studio) {
 		try {
 			Studio studioReturn = studioService.create(studio);
 			model.addAttribute("studio", studioReturn);
-			return "studios/view";
+			return "studios/viewStudio";
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.err.println(e.getMessage());
 		}
-		
+
 		return "redirect:/studios";
 	}
-	
-	//Id's
+
+	// Id's
 	@GetMapping("{id}") // GET: /studios/{id}
 	public String findById(Model model, @PathVariable("id") Integer id) {
 		try {
 			Optional<Studio> optional = studioService.findById(id);
-			if(optional.isPresent()) {
+			if (optional.isPresent()) {
 				model.addAttribute("studio", optional.get());
-				return "studios/view";
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-			System.err.println(e.getMessage());
-		}
-		return "redirect:/studios";	
-	}
-	
-	@GetMapping("{id}/edit") // GET: /studios/{id}/edit
-	public String findById2(Model model, @PathVariable("id") Integer id) {
-		try {
-			Optional<Studio> optional = studioService.findById(id);
-			if(optional.isPresent()) {
-				model.addAttribute("studioEdit", optional.get());
-				return "studios/edit";
+				return "studios/viewStudio";
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -104,6 +89,20 @@ public class StudioController {
 		}
 		return "redirect:/studios";
 	}
-    
-    
+
+	@GetMapping("{id}/editStudio") // GET: /studios/{id}/edit
+	public String findById2(Model model, @PathVariable("id") Integer id) {
+		try {
+			Optional<Studio> optional = studioService.findById(id);
+			if (optional.isPresent()) {
+				model.addAttribute("studioEdit", optional.get());
+				return "studios/editStudio";
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.err.println(e.getMessage());
+		}
+		return "redirect:/studios";
+	}
+
 }
