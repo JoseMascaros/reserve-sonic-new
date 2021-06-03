@@ -2,15 +2,20 @@ package pe.edu.upc.reservesonic.model.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "instruments")
+@SequenceGenerator(name = "sequenceInstrument", sequenceName = "Instruments_instrument_id_seq", initialValue = 5, allocationSize = 1)
 public class Instrument {
 	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequenceInstrument")
 	@Column(name = "instrument_id", columnDefinition = "NUMERIC(4)", nullable = false)
 	private Integer id;
 
