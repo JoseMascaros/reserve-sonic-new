@@ -29,7 +29,7 @@ public class InstrumentController {
 			System.err.println(e.getMessage());
 		}
 		
-		return "rooms/listInstruments";
+		return "instruments/listInstruments";
 	}
 	
 	@PostMapping("save")
