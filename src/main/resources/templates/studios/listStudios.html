@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+    <link th:href="@{/css/fontawesome.min.css}" rel="stylesheet">
+    <link th:href="@{/css/solid.min.css}" rel="stylesheet">
+
+    <title>Hello, world!</title>
+  </head>
+<body>
+
+	<h2>CRUD Example </h2>
+	
+	<div class="card" style="width: 40rem;">
+	  <div class="card-header">
+	    List of Studios
+	  </div>
+	  <div class="card-body">
+	  
+	  	<table class="table table-striped table-hover">
+		  <thead>
+		    <tr>
+		      <th scope="col">#</th>
+		      <th scope="col" style="width: 20rem;">Description</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		    <tr th:each="studio : ${studios}">
+		      <th th:text="${studio.id}" scope="row">1</th>
+		      <td th:text="${studio.name}">Mark</td>
+		    </tr>
+		  </tbody>
+		</table>
+	  </div>
+	</div>
+
+	<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>
