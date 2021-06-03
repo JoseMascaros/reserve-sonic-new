@@ -33,7 +33,7 @@ public class RoomController {
 			System.err.println(e.getMessage());
 		}
 
-		return "rooms/listRooms";
+		return "rooms/listRoom";
 	}
 
 	@PostMapping("save")
@@ -41,7 +41,7 @@ public class RoomController {
 		try {
 			Room roomReturn = roomService.update(room);
 			model.addAttribute("room", roomReturn);
-			return "rooms/view";
+			return "rooms/viewRoom";
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.err.println(e.getMessage());
@@ -54,7 +54,7 @@ public class RoomController {
 		try {
 			Room room = new Room();
 			model.addAttribute("roomNew", room);
-			return "rooms/new";
+			return "rooms/newRoom";
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.err.println(e.getMessage());
@@ -68,7 +68,7 @@ public class RoomController {
 		try {
 			Room roomReturn = roomService.create(room);
 			model.addAttribute("room", roomReturn);
-			return "rooms/view";
+			return "rooms/viewRoom";
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.err.println(e.getMessage());
@@ -84,7 +84,7 @@ public class RoomController {
 			Optional<Room> optional = roomService.findById(id);
 			if (optional.isPresent()) {
 				model.addAttribute("room", optional.get());
-				return "rooms/view";
+				return "rooms/viewRoom";
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -93,13 +93,13 @@ public class RoomController {
 		return "redirect:/rooms";
 	}
 
-	@GetMapping("{id}/edit") // GET: /rooms/{id}/edit
+	@GetMapping("{id}/editRoom") // GET: /rooms/{id}/edit
 	public String findById2(Model model, @PathVariable("id") Integer id) {
 		try {
 			Optional<Room> optional = roomService.findById(id);
 			if (optional.isPresent()) {
 				model.addAttribute("roomEdit", optional.get());
-				return "rooms/edit";
+				return "rooms/editRoom";
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
