@@ -33,7 +33,7 @@ public class InstrumentController {
 			System.err.println(e.getMessage());
 		}
 
-		return "instruments/listInstruments";
+		return "instruments/listInstrument";
 	}
 
 	@PostMapping("save")
@@ -41,7 +41,7 @@ public class InstrumentController {
 		try {
 			Instrument instrumentReturn = instrumentService.update(instrument);
 			model.addAttribute("instrument", instrumentReturn);
-			return "instruments/view";
+			return "instruments/viewInstrument";
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.err.println(e.getMessage());
@@ -54,7 +54,7 @@ public class InstrumentController {
 		try {
 			Instrument instrument = new Instrument();
 			model.addAttribute("instrumentNew", instrument);
-			return "instruments/new";
+			return "instruments/newInstrument";
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.err.println(e.getMessage());
@@ -64,11 +64,11 @@ public class InstrumentController {
 	}
 
 	@PostMapping("savenew")
-	public String saveNew(Model model, @ModelAttribute("isntrumentNew") Instrument instrument) {
+	public String saveNew(Model model, @ModelAttribute("instrumentNew") Instrument instrument) {
 		try {
 			Instrument instrumentReturn = instrumentService.create(instrument);
 			model.addAttribute("instrument", instrumentReturn);
-			return "instruments/view";
+			return "instruments/viewInstrument";
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.err.println(e.getMessage());
@@ -84,7 +84,7 @@ public class InstrumentController {
 			Optional<Instrument> optional = instrumentService.findById(id);
 			if (optional.isPresent()) {
 				model.addAttribute("instrument", optional.get());
-				return "instruments/view";
+				return "instruments/viewInstrument";
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -99,7 +99,7 @@ public class InstrumentController {
 			Optional<Instrument> optional = instrumentService.findById(id);
 			if (optional.isPresent()) {
 				model.addAttribute("instrumentEdit", optional.get());
-				return "instruments/edit";
+				return "instruments/editInstrument";
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
