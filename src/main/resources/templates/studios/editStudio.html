@@ -7,15 +7,24 @@
 	<link th:href="@{/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
 	<link th:href="@{/bootstrap/css/fontawesome.min.css}" rel="stylesheet">
 	<link th:href="@{/bootstrap/css/solid.min.css}" rel="stylesheet">
-	<link rel="stylesheet" th:href="@{css/master.css}" />
+	<link rel="stylesheet" th:href="@{/../css/master.css}" />
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+
+	<!-- Bootstrap CSS -->
+	<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/css/bootstrap.min.css'>
+	<!-- Font Awesome CSS -->
+	<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.3.1/css/all.css'>
+	<!-- Style POPUP CSS -->
+	<link rel="stylesheet" href="css/RegisterPopup.css">
 	<title>Reserve Sonic - Studios</title>
 </head>
 
 <body>
 
 	<nav class=" navbar navbar-expand-lg navbar-light bg-white mx-5 px-5 pb-5">
-		<a class="navbar-brand logo pe-3" href="/"><img src="../static/images/reserve_sonic_logo.png"
-				th:src="@{images/reserve_sonic_logo.png}"></img></a>
+		<a class="navbar-brand logo pe-3" href="/"><img th:src="@{/../images/reserve_sonic_logo.png}"></img></a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
 			aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
@@ -42,14 +51,14 @@
 				<div class="card-body">
 					<form th:action="@{/studios/save}" th:object="${studioEdit}" method="post">
 						<div class="mb-3">
-							
-							<label for="name" class="form-label">Name</label> 
+
+							<label for="name" class="form-label">Name</label>
 							<input type="text" class="form-control" th:field="*{name}" placeholder="Name of Studio">
 						</div>
 
 						<button type="submit" class="btn btn-primary">Update</button>
 					</form>
-					<br> <a th:href="@{/studios}" class="btn btn-primary"> <i class="fas fa-angle-double-left"></i>
+					<br> <a th:href="@{/studios}" class="btn og_btn"> <i class="fas fa-angle-double-left"></i>
 						Return
 					</a>
 				</div>
