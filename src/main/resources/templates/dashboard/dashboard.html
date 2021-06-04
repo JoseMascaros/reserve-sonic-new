@@ -18,8 +18,8 @@
 
 <body>
 
-  <header class="navbar navbar-light sticky-top flex-md-nowrap p-0">
-    <a class="col-md-3 col-lg-2 me-0 px-3 pt-3" href="#"><img th:src="@{images/reserve_sonic_logo.png}"></img></a>
+  <header class="navbar navbar-light sticky-top flex-md-nowrap ps-3">
+    <a class="col-md-3 col-lg-2 me-0 px-3 pt-3 ps-5" href="#"><img th:src="@{images/reserve_sonic_logo.png}"></img></a>
     <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse"
       data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -29,8 +29,8 @@
 
   <div class="container-fluid">
     <div class="row">
-      <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block sidebar collapse">
-        <div class="position-sticky pt-3">
+      <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block sidebar collapse ps-5">
+        <div class="position-sticky pt-5">
           <ul class="nav flex-column">
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="#">
@@ -41,13 +41,19 @@
             <li class="nav-item">
               <a class="nav-link" href="#">
                 <span data-feather="file"></span>
-                Orders
+                Past reservations
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">
-                <span data-feather="shopping-cart"></span>
-                Products
+              <a class="nav-link" th:href="@{'/rooms'}">
+                <span data-feather="play-circle"></span>
+                Rooms
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" th:href="@{'/instruments'}">
+                <span data-feather="music"></span>
+                Instruments
               </a>
             </li>
             <li class="nav-item">
@@ -64,17 +70,15 @@
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">
-                <span data-feather="layers"></span>
-                Integrations
+                <span data-feather="settings"></span>
+                Settings
               </a>
             </li>
           </ul>
-
-
         </div>
       </nav>
 
-      <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+      <main class="col-md-9 ms-sm-auto col-lg-10 px-5">
         <div
           class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
           <h1 class="h2 active">Reservations</h1>
