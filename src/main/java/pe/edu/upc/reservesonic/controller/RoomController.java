@@ -107,4 +107,18 @@ public class RoomController {
 		}
 		return "redirect:/rooms";
 	}
+	
+	@GetMapping("{id}/deleteRoom")
+	public String deleteRoom(@PathVariable("id") Integer id ) {
+		try {
+			Optional<Room> optional = roomService.findById(id);
+			if (optional.isPresent()) {
+				roomService.deleteById(id);
+			}			
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.err.println(e.getMessage());
+		}
+		return "redirect:/rooms";
+	}
 }
