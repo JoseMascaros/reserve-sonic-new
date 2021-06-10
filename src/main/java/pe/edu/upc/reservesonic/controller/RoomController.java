@@ -78,7 +78,7 @@ public class RoomController {
 	}
 
 	// Id's
-	@GetMapping("{id}") // GET: /rooms/{id}
+	@GetMapping("{id}/viewRoom") // GET: /rooms/{id}
 	public String findById(Model model, @PathVariable("id") Integer id) {
 		try {
 			Optional<Room> optional = roomService.findById(id);

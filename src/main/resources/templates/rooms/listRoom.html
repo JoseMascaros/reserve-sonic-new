@@ -35,8 +35,8 @@
 								<th th:text="${room.id}" scope="row">1</th>
 								<td th:text="${room.capacity}">Mark</td>
 
-								<td> <a th:href="@{'/rooms/' + ${room.id}}" class="btn edit_btn search"> <i
-											class="fas fa-search"></i>
+								<td> <a th:href="@{'/rooms/' + ${room.id} + '/viewRoom'}" class="btn edit_btn search">
+										<i class="fas fa-search"></i>
 									</a> </td>
 
 								<td> <a th:href="@{'/rooms/' + ${room.id} + '/editRoom'}" class="btn edit_btn pencil">

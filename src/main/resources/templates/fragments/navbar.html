@@ -22,8 +22,12 @@
 
 <div th:fragment="navbar">
     <header class="navbar navbar-light sticky-top flex-md-nowrap ps-3">
-        <a class="col-md-3 col-lg-2 me-0 px-3 pt-3 ps-5" href="#"><img
-                th:src="@{images/reserve_sonic_logo.png}"></img></a>
+        <a class="col-md-3 col-lg-2 me-0 px-3 pt-3 ps-5" th:href="@{'/dashboard'}">
+
+            <img th:src="@{../../images/reserve_sonic_logo.png}"></img>
+
+
+        </a>
         <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse"
             data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false"
             aria-label="Toggle navigation">
