@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import pe.edu.upc.reservesonic.model.entity.Instrument;
+import pe.edu.upc.reservesonic.model.entity.Room;
 import pe.edu.upc.reservesonic.service.crud.InstrumentService;
 
 @Controller
@@ -78,7 +79,7 @@ public class InstrumentController {
 	}
 
 	// Id's
-	@GetMapping("{id}") // GET: /instruments/{id}
+	@GetMapping("{id}/viewInstrument") // GET: /instruments/{id}
 	public String findById(Model model, @PathVariable("id") Integer id) {
 		try {
 			Optional<Instrument> optional = instrumentService.findById(id);
@@ -93,7 +94,7 @@ public class InstrumentController {
 		return "redirect:/instruments";
 	}
 
-	@GetMapping("{id}/edit") // GET: /instruments/{id}/edit
+	@GetMapping("{id}/editInstrument") // GET: /instruments/{id}/edit
 	public String findById2(Model model, @PathVariable("id") Integer id) {
 		try {
 			Optional<Instrument> optional = instrumentService.findById(id);
@@ -101,6 +102,20 @@ public class InstrumentController {
 				model.addAttribute("instrumentEdit", optional.get());
 				return "instruments/editInstrument";
 			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.err.println(e.getMessage());
+		}
+		return "redirect:/instruments";
+	}
+	
+	@GetMapping("{id}/deleteInstrument")
+	public String deleteInstrument(@PathVariable("id") Integer id ) {
+		try {
+			Optional<Instrument> optional = instrumentService.findById(id);
+			if (optional.isPresent()) {
+				instrumentService.deleteById(id);
+			}			
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.err.println(e.getMessage());

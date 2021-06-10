@@ -37,7 +37,7 @@ public class StudioController {
 	}
 
 	// Id's
-	@GetMapping("{id}") // GET: /studios/{id}
+	@GetMapping("{id}/viewStudio") // GET: /studios/{id}
 	public String findById(Model model, @PathVariable("id") Integer id) {
 		try {
 			Optional<Studio> optional = studioService.findById(id);
@@ -105,6 +105,20 @@ public class StudioController {
 			System.err.println(e.getMessage());
 		}
 
+		return "redirect:/studios";
+	}
+	
+	@GetMapping("{id}/deleteStudio")
+	public String deleteStudio(@PathVariable("id") Integer id ) {
+		try {
+			Optional<Studio> optional = studioService.findById(id);
+			if (optional.isPresent()) {
+				studioService.deleteById(id);
+			}			
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.err.println(e.getMessage());
+		}
 		return "redirect:/studios";
 	}
 
