@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import pe.edu.upc.reservesonic.model.entity.Instrument;
 import pe.edu.upc.reservesonic.model.entity.Room;
 import pe.edu.upc.reservesonic.service.crud.InstrumentService;
+import pe.edu.upc.reservesonic.service.crud.RoomService;
 
 @Controller
 @RequestMapping("/instruments")
@@ -23,6 +24,9 @@ import pe.edu.upc.reservesonic.service.crud.InstrumentService;
 public class InstrumentController {
 	@Autowired
 	private InstrumentService instrumentService;
+	
+	@Autowired
+	private RoomService roomService;
 
 	@GetMapping
 	public String list(Model model) {
@@ -42,7 +46,7 @@ public class InstrumentController {
 		try {
 			Instrument instrumentReturn = instrumentService.update(instrument);
 			model.addAttribute("instrument", instrumentReturn);
-			return "instruments/viewInstrument";
+			//return "instruments/viewInstrument";
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.err.println(e.getMessage());
@@ -55,6 +59,8 @@ public class InstrumentController {
 		try {
 			Instrument instrument = new Instrument();
 			model.addAttribute("instrumentNew", instrument);
+			List<Room> listRooms = roomService.getAll();
+			model.addAttribute("listRooms", listRooms);
 			return "instruments/newInstrument";
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -69,7 +75,7 @@ public class InstrumentController {
 		try {
 			Instrument instrumentReturn = instrumentService.create(instrument);
 			model.addAttribute("instrument", instrumentReturn);
-			return "instruments/viewInstrument";
+			//return "instruments/viewInstrument";
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.err.println(e.getMessage());
@@ -100,6 +106,8 @@ public class InstrumentController {
 			Optional<Instrument> optional = instrumentService.findById(id);
 			if (optional.isPresent()) {
 				model.addAttribute("instrumentEdit", optional.get());
+				List<Room> listRooms = roomService.getAll();
+				model.addAttribute("listRooms", listRooms);
 				return "instruments/editInstrument";
 			}
 		} catch (Exception e) {
