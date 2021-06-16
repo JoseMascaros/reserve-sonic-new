@@ -33,7 +33,7 @@ public class District {
 
 	// ManyToOne relationships
 	@ManyToOne
-	@JoinColumn(name = "region_id", nullable = false)
+	@JoinColumn(name = "region_id")
 	private Region region;
 
 	// Constructor, getters & setters
