@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="./fragments/navbar :: head">
+</head>
+
+<body>
+
+	<div th:replace="./fragments/navbar :: navbar"></div>
+
+	<main class="col-md-9 ms-sm-auto col-lg-10 px-5">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+
+					<div class="row">
+						<h2 class="pg_title">My Reservations</h2>
+					</div>
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th scope="col">ID</th>
+								<th scope="col">Room</th>
+								<th scope="col">Studio</th>
+								<th scope="col" style="width: 10rem;">Reservation Date</th>
+								<th scope="col"></th>
+								<th scope="col"></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="reservation : ${reservations}">
+								<th th:text="${reservation.id}" scope="row">1</th>
+								<td th:text="${reservation.room.roomNumber}">2</td>
+								<td th:text="${reservation.room.studio.name}">3</td>
+								<td th:text="${reservation.startDate}">4</td>
+								<td><a th:href="@{'/myReservations/' + ${reservation.id}}"
+									class="btn edit_btn search"><i class="fas fa-search"></i></a></td>
+								<td><a href="#"
+									class="btn edit_btn pencil"><i class="fas fa-edit"></i></a></td>
+								<td><a href="#" class="btn btn-danger"><i
+										class="fas fa-trash-alt"></i></a></td>
+							</tr>
+						</tbody>
+					</table>
+
+
+					<a th:href="@{'/reservations/'}" class="btn btn-primary"><i
+						class="fas fa-plus"></i>New</a>
+				</div>
+			</div>
+		</div>
+	</main>
+	<div th:replace="./fragments/navbar :: javascript"></div>
+</body>
+
+</html>
