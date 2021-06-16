@@ -23,8 +23,8 @@
 						<thead>
 							<tr>
 								<th scope="col">#</th>
+								<th scope="col">Room Number</th>
 								<th scope="col">Capacity</th>
-								<th scope="col"></th>
 								<th scope="col"></th>
 								<th scope="col"></th>
 								<th scope="col"></th>
@@ -33,6 +33,7 @@
 						<tbody>
 							<tr th:each="room : ${rooms}">
 								<th th:text="${room.id}" scope="row">1</th>
+								<td th:text="${room.roomNumber}">Mark</td>
 								<td th:text="${room.capacity}">Mark</td>
 
 								<td> <a th:href="@{'/rooms/' + ${room.id} + '/viewRoom'}" class="btn edit_btn search">
