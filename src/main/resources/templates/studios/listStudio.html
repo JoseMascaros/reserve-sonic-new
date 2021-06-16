@@ -1,36 +1,12 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link th:href="@{/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
-	<link th:href="@{/bootstrap/css/fontawesome.min.css}" rel="stylesheet">
-	<link th:href="@{/bootstrap/css/solid.min.css}" rel="stylesheet">
-	<link rel="stylesheet" th:href="@{./css/master.css}" />
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
-		integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-
-	<!-- Font Awesome CSS -->
-	<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.3.1/css/all.css'>
-	<!-- Style POPUP CSS -->
-	<link rel="stylesheet" href="css/RegisterPopup.css">
-
-	<link rel="canonical" th:href="@{https://getbootstrap.com/docs/5.0.0/examples/dashboard/}">
-	<!-- Bootstrap core CSS -->
-	<link th:rel="stylesheet"
-		th:href="@{https://cdn.jsdelivr.net/webjars/org.webjars/bootstrap/5.0.1/css/bootstrap.min.css} " />
-
-	<!-- Custom styles for this template -->
-	<link th:href="@{../../css/dashboard.css}" rel="stylesheet">
-
-	<title>Reserve Sonic - Studios</title>
+<head th:replace="./fragments/navbar :: head">
 </head>
 
 <body>
 
-	<div th:replace="../fragments/navbar :: navbar"></div>
-
+	<div th:replace="./fragments/navbar :: navbar"></div>
 
 	<main class="col-md-9 ms-sm-auto col-lg-10 px-5">
 		<div class="container">
@@ -46,29 +22,28 @@
 					<table class="table table-hover">
 						<thead>
 							<tr>
-								<th scope="col">#</th>
-								<th scope="col">Name</th>
-								<th scope="col"></th>
-								<th scope="col"></th>
+								<th scope="col">ID</th>
+								<th scope="col">Studio</th>
+								<th scope="col" style="width: 10rem;">Business Hours</th>
 								<th scope="col"></th>
 								<th scope="col"></th>
 							</tr>
 						</thead>
 						<tbody>
 							<tr th:each="studio : ${studios}">
-								<th th:text="${studio.id}" scope="row">1</th>
-								<td th:text="${studio.name}">Mark</td>
-								<td> <a th:href="@{'/studios/' + ${studio.id} + '/viewStudio'}" class="btn edit_btn search"> <i
-											class="fas fa-search"></i>
+								<th th:text="${studio.id}" scope="row" >1</th>
+								<td th:text="${studio.name}">2</td>
+								<td th:text="${studio.startTime} +' - ' + ${studio.endTime}">3</td>
+
+								<td> <a th:href="@{'/studios/' + ${studio.id} + '/viewStudio'}" class="btn edit_btn search">
+										<i class="fas fa-search"></i>
 									</a> </td>
 
-								<td> <a th:href="@{'/studios/' + ${studio.id} + '/editStudio'}"
-										class="btn edit_btn pencil">
+								<td> <a th:href="@{'/studios/' + ${studio.id} + '/editStudio'}" class="btn edit_btn pencil">
 										<i class="fas fa-pencil-alt"></i> </a></td>
 
-								<td> <a th:href="@{'/studios/' + ${studio.id} + '/deleteStudio'}"
-										class="btn edit_btn pencil">
-										<i class="fas fa-trash-alt"></i> </a></td>
+								<td> <a th:href="@{'/studios/' + ${studio.id} + '/deleteStudio'}" class="btn btn-danger"> 
+										<i class="far fa-trash-alt"></i> </a></td>
 							</tr>
 						</tbody>
 					</table>
