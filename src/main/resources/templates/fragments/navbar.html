@@ -47,12 +47,24 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" th:href="@{'/reservations'}">
                                 <span data-feather="file"></span>
-                                Past reservations
+                                Reserve
                             </a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" th:href="@{'/myReservations'}">
+                                <span data-feather="file"></span>
+                                My reservations
+                            </a>
+                        </li>
+						<li class="nav-item">
+							<a class="nav-link" th:href="@{'/studios'}"> 
+								<span data-feather="play-circle"></span>
+								Studios
+							</a>
+						</li>
+						<li class="nav-item">
                             <a class="nav-link" th:href="@{'/rooms'}">
                                 <span data-feather="play-circle"></span>
                                 Rooms
