@@ -22,13 +22,31 @@ public class Room {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequenceRoom")
 	@Column(name = "room_id", columnDefinition = "DECIMAL(4)")
 	private Integer id;
+	
+
+	@Column(name = "room_number", columnDefinition = "NUMERIC(4)", nullable = false)
+	private Integer roomNumber; // numero de la sala
 
 	@Column(name = "capacity", columnDefinition = "NUMERIC(4)", nullable = false)
 	private Integer capacity;
+	
+
+	@Column(name = "speecs", length = 120)
+	private String speecs; // caracteristicas
+	
+
+	@Column(name = "price_per_hour", scale = 2)
+	private Double pricePerHour; // precio de la sala por hora
 
 	// OneToMany relationships
 	@OneToMany(mappedBy = "room")
 	private List<Instrument> instruments;
+		
+	@OneToMany(mappedBy = "room")
+	private List<Review> reviews;
+
+	@OneToMany(mappedBy = "room")
+	private List<Reservation> reservations;
 
 	// ManyToOne relationships
 	@ManyToOne
@@ -71,6 +89,46 @@ public class Room {
 
 	public void setStudio(Studio studio) {
 		this.studio = studio;
+	}
+
+	public Integer getRoomNumber() {
+		return roomNumber;
+	}
+
+	public void setRoomNumber(Integer roomNumber) {
+		this.roomNumber = roomNumber;
+	}
+
+	public String getSpeecs() {
+		return speecs;
+	}
+
+	public void setSpeecs(String speecs) {
+		this.speecs = speecs;
+	}
+
+	public Double getPricePerHour() {
+		return pricePerHour;
+	}
+
+	public void setPricePerHour(Double pricePerHour) {
+		this.pricePerHour = pricePerHour;
+	}
+
+	public List<Review> getReviews() {
+		return reviews;
+	}
+
+	public void setReviews(List<Review> reviews) {
+		this.reviews = reviews;
+	}
+
+	public List<Reservation> getReservations() {
+		return reservations;
+	}
+
+	public void setReservations(List<Reservation> reservations) {
+		this.reservations = reservations;
 	}
 
 	@Override
