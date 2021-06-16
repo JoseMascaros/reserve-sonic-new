@@ -15,7 +15,7 @@
 				<div class="col-6">
 
 					<div class="row">
-						<h2 class="pg_title">Instruments</h2>
+						<h2 class="pg_title">New Instrument</h2>
 					</div>
 
 					<div class="card-body">
@@ -24,15 +24,23 @@
 							<div class="mb-3">
 
 								<label for="name" class="form-label">Name</label> <input type="text"
-									class="form-control" th:field="*{name}" placeholder="Name of Instrument">
+									class="form-control" th:field="*{name}" placeholder="Name of Instrument"><br>
 
 								<label for="brand" class="form-label">Brand</label> <input type="text"
-									class="form-control" th:field="*{brand}" placeholder="Brand of Instrument">
+									class="form-control" th:field="*{brand}" placeholder="Brand of Instrument"><br>
 
 								<label for="description" class="form-label">Description</label> <input type="text"
 									class="form-control" th:field="*{description}"
-									placeholder="Description of Instrument">
-
+									placeholder="Description of Instrument"><br>
+									
+								<label for="room" class="form-label">Room</label>
+								<div class="col-sm-6">
+									<select class="form-control" th:field="*{room.id}">
+										<option th:each="r: ${listRooms}" th:value="${r.id}"
+											th:text="${r.roomNumber}"
+											th:selected="(${r.id} == *{room.id})"></option>
+									</select>
+								</div>
 
 							</div>
 
