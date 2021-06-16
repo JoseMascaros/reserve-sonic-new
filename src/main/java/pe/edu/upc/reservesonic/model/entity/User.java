@@ -3,28 +3,24 @@ package pe.edu.upc.reservesonic.model.entity;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "users")
-@SequenceGenerator(name = "genUserId", initialValue = 1, allocationSize = 1)
-public class User { //Musician
+public class User { // Musician
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "genUserId")
-	@Column(name = "user_id", columnDefinition = "NUMERIC(4)")
 	private Integer id;
 
-	@Column(name = "name", length = 30, nullable = false)
+	@Column(name = "username", length = 30, nullable = false)
 	private String username;
 
 	@Column(name = "email", length = 50, nullable = false)
@@ -33,8 +29,34 @@ public class User { //Musician
 	@Column(name = "password", length = 60, nullable = false)
 	private String password;
 
-	@Column(name = "description", length = 70, nullable = false)
-	private String description;
+	@Column(name = "enable")
+	private boolean enable;
+
+	@OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	private List<Authority> authorities;
+
+	public User() {
+		this.enable = true;
+		this.authorities = new ArrayList<>();
+		reservations = new ArrayList<Reservation>();
+		reviews = new ArrayList<Review>();
+	}
+
+	public User(String username, String password) {
+		this.username = username;
+		this.password = password;
+		this.enable = true;
+		this.authorities = new ArrayList<>();
+	}
+
+	// Agregar el ROLE o ACCESS al usuario
+	public void addAuthority(String auth) {
+		Authority authority = new Authority();
+		authority.setAuthority(auth);
+		authority.setUser(this);
+
+		this.authorities.add(authority);
+	}
 
 	// OneToMany relationships
 	@OneToMany(mappedBy = "user")
@@ -49,11 +71,6 @@ public class User { //Musician
 	private District district;
 
 	// Constructor, getters & setters
-	public User() {
-		reservations = new ArrayList<Reservation>();
-		reviews = new ArrayList<Review>();
-	}
-
 	public Integer getId() {
 		return id;
 	}
@@ -84,14 +101,6 @@ public class User { //Musician
 
 	public void setPassword(String password) {
 		this.password = password;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
 	}
 
 	public List<Reservation> getReservations() {
