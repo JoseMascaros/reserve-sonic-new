@@ -11,23 +11,23 @@
 	<main class="col-md-9 ms-sm-auto col-lg-10 px-5">
 
 		<div class="row">
-			<h2 class="pg_title">Rooms</h2>
+			<h2 class="pg_title">Studios Available</h2>
 		</div>
 		<section style="margin: 20px;">
 			<div class="row">
 
-				<div th:each="room : ${rooms}" class="col-sm-3" style="padding: 5px;" >
+				<div th:each="room : ${rooms}" class="col-sm-3" style="padding: 5px;">
 					<div class="card mb-3 text-center" style="width: 15rem;">
 						<img th:src="@{/../images/studiocartoon.jpg}" class="card-img-top studio_icon mx-auto pt-3"
 							alt="Card image cap">
-							<div class="card-body">
-								<h5 class="card-title"> Studio: <span th:text="${room.studio.name}"></span></h5>
-								<h6 class="card-text"> Room Number: <span th:text="${room.roomNumber}"></span></h6> 
-								<h6 class="card-text"> Capacity: <span th:text="${room.capacity}"></span> people.</h6>
-								<h6 class="card-text"> Price Per Hour: S/ <span th:text="${room.pricePerHour}"></span></h6>
-								<h6 class="card-text"> Speecs: <span th:text="${room.speecs}"></span></h6>
-								<br>
-								<a th:href="@{'/reservations/new/'+${room.id}}" class="btn og_btn">Reserve</a>
+						<div class="card-body">
+							<h5 class="card-title"> Studio: <span th:text="${room.studio.name}"></span></h5>
+							<h6 class="card-text"> Room Number: <span th:text="${room.roomNumber}"></span></h6>
+							<h6 class="card-text"> Capacity: <span th:text="${room.capacity}"></span> people.</h6>
+							<h6 class="card-text"> Price Per Hour: S/ <span th:text="${room.pricePerHour}"></span></h6>
+							<h6 class="card-text"> Specs: <span th:text="${room.speecs}"></span></h6>
+							<br>
+							<a th:href="@{'/reservations/new/'+${room.id}}" class="btn og_btn">Reserve</a>
 						</div>
 					</div>
 				</div>

@@ -25,7 +25,7 @@ public class StudioController {
 
 	@Autowired
 	private StudioService studioService;
-	
+
 	@Autowired
 	private DistrictService districtService;
 
@@ -48,7 +48,7 @@ public class StudioController {
 			Optional<Studio> optional = studioService.findById(id);
 			if (optional.isPresent()) {
 				model.addAttribute("studio", optional.get());
-				//return "studios/viewStudio";
+				return "studios/viewStudio";
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -79,7 +79,7 @@ public class StudioController {
 		try {
 			Studio studioReturn = studioService.update(studio);
 			model.addAttribute("studio", studioReturn);
-			//return "studios/viewStudio";
+			// return "studios/viewStudio";
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.err.println(e.getMessage());
@@ -116,14 +116,14 @@ public class StudioController {
 
 		return "redirect:/studios";
 	}
-	
+
 	@GetMapping("{id}/deleteStudio")
-	public String deleteStudio(@PathVariable("id") Integer id ) {
+	public String deleteStudio(@PathVariable("id") Integer id) {
 		try {
 			Optional<Studio> optional = studioService.findById(id);
 			if (optional.isPresent()) {
 				studioService.deleteById(id);
-			}			
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.err.println(e.getMessage());
