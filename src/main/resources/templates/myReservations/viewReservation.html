@@ -18,15 +18,17 @@
 					</div>
 
 					<div class="card mb-3 text-center" style="width: 500px;">
-						<img class="card-img-top studio_icon mx-auto pt-3"
-							th:src="@{/../images/studiocartoon.jpg}" alt="Card image cap">
+						<img class="card-img-top studio_icon mx-auto pt-3" th:src="@{/../images/studiocartoon.jpg}"
+							alt="Card image cap">
 						<div class="card-body">
-								<h5 class="card-title"> Id: <span th:text="${reservation.id}"></span> </h5> 
-								<h5 class="card-text"> Studio: <span th:text="${reservation.room.studio.name}"></span></h5>
-								<h5 class="card-text"> Room: <span th:text="${reservation.room.roomNumber}"></span></h5>
-								<h5 class="card-text"> State: <span th:text="${reservation.status}"></span></h5> 
-								<h5 class="card-text"> Reservation Date: <span th:text="${reservation.startDate}"></span></h5>
-								<h5 class="card-text"> Hours: <span th:text="${reservation.hour}"></span></h5>
+							<h5 class="card-title"> Id: <span th:text="${reservation.id}"></span> </h5>
+							<h5 class="card-text"> Studio: <span th:text="${reservation.room.studio.name}"></span></h5>
+							<h5 class="card-text"> Room: <span th:text="${reservation.room.roomNumber}"></span></h5>
+							<h5 class="card-text"> Status: <span th:text="${reservation.status}"></span></h5>
+							<h5 class="card-text"> Reservation Date: <span th:text="${reservation.startDate}"></span>
+							</h5>
+							<h5 class="card-text"> Hours: <span th:text="${reservation.hour}"></span></h5>
+							<h5 class="card-text"> Final Price: <span th:text="${reservation.hour}"></span></h5>
 						</div>
 					</div>
 

@@ -34,18 +34,12 @@
 								<td th:text="${reservation.room.studio.name}">3</td>
 								<td th:text="${reservation.startDate}">4</td>
 								<td><a th:href="@{'/myReservations/' + ${reservation.id}}"
-									class="btn edit_btn search"><i class="fas fa-search"></i></a></td>
-								<td><a href="#"
-									class="btn edit_btn pencil"><i class="fas fa-edit"></i></a></td>
-								<td><a href="#" class="btn btn-danger"><i
-										class="fas fa-trash-alt"></i></a></td>
+										class="btn edit_btn search"><i class="fas fa-search"></i></a></td>
+								<td><a href="#" class="btn edit_btn pencil"><i class="fas fa-edit"></i></a></td>
+								<td><a href="#" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a></td>
 							</tr>
 						</tbody>
 					</table>
-
-
-					<a th:href="@{'/reservations/'}" class="btn btn-primary"><i
-						class="fas fa-plus"></i>New</a>
 				</div>
 			</div>
 		</div>
