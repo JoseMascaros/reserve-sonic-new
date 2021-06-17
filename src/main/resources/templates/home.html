@@ -40,15 +40,61 @@
             <div class="col">
                 <div class="row mx-5 my-5 pb-5">
                     <h4 class="text-center pb-3">
-                        Descubre salas de ensayo, comparte tu opinión,<br></br> promueve
-                        tu studio. <br></br>Todo en un solo lugar
+                        Discover rehearsal rooms, share your experience,<br></br> promote
+                        your studio. <br></br>All in one place.
                     </h4>
                 </div>
                 <div class="row text-center mt-5">
                     <button type="button" class="btn register mx-auto " data-toggle="modal"
                         data-target="#loginModal">Login</button>
+                    <div class="modal-footer d-flex justify-content-center mt-5">
+                        <div class="signup-section">Not a member yet? <a type="button" data-toggle="modal"
+                                data-target="#signUpModal" class="login"> Sign
+                                Up</a>.
+                        </div>
+                    </div>
                 </div>
 
+            </div>
+        </div>
+
+        <div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header border-bottom-0">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-title text-center">
+                            <h4>Sign Up</h4>
+                        </div>
+                        <div class="d-flex flex-column text-center">
+                            <form>
+                                <div class="form-group">
+                                    <input type="email" class="form-control" id="email1"
+                                        placeholder="Your email address...">
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" class="form-control" id="password1"
+                                        placeholder="Your password...">
+                                </div>
+                                <div class="form-group">
+                                    <select class="form-select" aria-label="Default select example">
+                                        <option selected>Select your role</option>
+                                        <option value="1">Studio owner</option>
+                                        <option value="2">Musician</option>
+                                    </select>
+                                </div>
+                                <a th:href="@{/dashboard}" style="text-decoration: none;"><button type="button"
+                                        class="btn btn-block register">Create account</button></a>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -80,10 +126,6 @@
 
                             </form>
 
-                        </div>
-                    </div>
-                    <div class="modal-footer d-flex justify-content-center">
-                        <div class="signup-section">Not a member yet? <a href="#a" class="login"> Sign Up</a>.
                         </div>
                     </div>
                 </div>

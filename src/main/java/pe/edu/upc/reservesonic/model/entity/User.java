@@ -12,6 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
 
 @Entity
 @Table(name = "users")
@@ -24,6 +25,7 @@ public class User { // Musician
 	private String username;
 
 	@Column(name = "email", length = 50, nullable = false)
+	@Email
 	private String email;
 
 	@Column(name = "password", length = 60, nullable = false)
@@ -32,12 +34,13 @@ public class User { // Musician
 	@Column(name = "enable")
 	private boolean enable;
 
-	@OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	private List<Authority> authorities;
+	// @OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade =
+	// CascadeType.ALL)
+	// private List<Authority> authorities;
 
 	public User() {
 		this.enable = true;
-		this.authorities = new ArrayList<>();
+		// this.authorities = new ArrayList<>();
 		reservations = new ArrayList<Reservation>();
 		reviews = new ArrayList<Review>();
 	}
@@ -46,17 +49,17 @@ public class User { // Musician
 		this.username = username;
 		this.password = password;
 		this.enable = true;
-		this.authorities = new ArrayList<>();
+		// this.authorities = new ArrayList<>();
 	}
 
 	// Agregar el ROLE o ACCESS al usuario
-	public void addAuthority(String auth) {
-		Authority authority = new Authority();
-		authority.setAuthority(auth);
-		authority.setUser(this);
+	// public void addAuthority(String auth) {
+	// Authority authority = new Authority();
+	// authority.setAuthority(auth);
+	// authority.setUser(this);
 
-		this.authorities.add(authority);
-	}
+	// this.authorities.add(authority);
+	// }
 
 	// OneToMany relationships
 	@OneToMany(mappedBy = "user")

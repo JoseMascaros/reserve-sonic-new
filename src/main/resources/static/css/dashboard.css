@@ -52,7 +52,15 @@ body {
 }
 
 .sidebar .nav-link.active {
-  color: #007bff;
+  color: #fc5e32;
+}
+
+.sidebar .nav-link:hover:not(.active) {
+  color: #111;
+}
+
+.sidebar .nav-link:focus {
+  color: #fc5e32;
 }
 
 .sidebar .nav-link:hover .feather,
@@ -113,8 +121,4 @@ body {
   .bd-placeholder-img-lg {
     font-size: 3.5rem;
   }
-}
-
-.active {
-  color: #fc5e32 !important;
 }
