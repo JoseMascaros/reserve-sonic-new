@@ -25,6 +25,7 @@
 								<th scope="col">ID</th>
 								<th scope="col">Studio</th>
 								<th scope="col" style="width: 10rem;">Business Hours</th>
+								<th scope="col">Price per hour</th>
 								<th scope="col"></th>
 								<th scope="col"></th>
 							</tr>
@@ -34,6 +35,7 @@
 								<th th:text="${studio.id}" scope="row" >1</th>
 								<td th:text="${studio.name}">2</td>
 								<td th:text="${studio.startTime} +' - ' + ${studio.endTime}">3</td>
+								<td th:text="${studio.pricePerHour}">2</td>
 
 								<td> <a th:href="@{'/studios/' + ${studio.id} + '/viewStudio'}" class="btn edit_btn search">
 										<i class="fas fa-search"></i>
@@ -44,6 +46,8 @@
 
 								<td> <a th:href="@{'/studios/' + ${studio.id} + '/deleteStudio'}" class="btn btn-danger"> 
 										<i class="far fa-trash-alt"></i> </a></td>
+										
+										
 							</tr>
 						</tbody>
 					</table>

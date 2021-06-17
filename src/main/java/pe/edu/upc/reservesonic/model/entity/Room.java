@@ -3,8 +3,10 @@ package pe.edu.upc.reservesonic.model.entity;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -34,12 +36,8 @@ public class Room {
 	@Column(name = "speecs", length = 120)
 	private String speecs; // caracteristicas
 	
-
-	@Column(name = "price_per_hour", scale = 2)
-	private Double pricePerHour; // precio de la sala por hora
-
 	// OneToMany relationships
-	@OneToMany(mappedBy = "room")
+	@OneToMany(mappedBy = "room", cascade = CascadeType.REMOVE)
 	private List<Instrument> instruments;
 		
 	@OneToMany(mappedBy = "room")
@@ -49,7 +47,7 @@ public class Room {
 	private List<Reservation> reservations;
 
 	// ManyToOne relationships
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "studio_id")
 	private Studio studio;
 
@@ -105,14 +103,6 @@ public class Room {
 
 	public void setSpeecs(String speecs) {
 		this.speecs = speecs;
-	}
-
-	public Double getPricePerHour() {
-		return pricePerHour;
-	}
-
-	public void setPricePerHour(Double pricePerHour) {
-		this.pricePerHour = pricePerHour;
 	}
 
 	public List<Review> getReviews() {

@@ -23,6 +23,7 @@
 								<th scope="col">Room</th>
 								<th scope="col">Studio</th>
 								<th scope="col" style="width: 10rem;">Reservation Date</th>
+								<th scope="col">Price</th>
 								<th scope="col"></th>
 								<th scope="col"></th>
 							</tr>
@@ -33,6 +34,7 @@
 								<td th:text="${reservation.room.roomNumber}">2</td>
 								<td th:text="${reservation.room.studio.name}">3</td>
 								<td th:text="${reservation.startDate}">4</td>
+								<td th:text="${reservation.price}">5</td>
 								<td><a th:href="@{'/myReservations/' + ${reservation.id}}"
 										class="btn edit_btn search"><i class="fas fa-search"></i></a></td>
 								<td><a href="#" class="btn edit_btn pencil"><i class="fas fa-edit"></i></a></td>

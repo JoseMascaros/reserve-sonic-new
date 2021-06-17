@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -44,7 +45,7 @@ public class Studio {
 	private Date endTime; // hora de fin
 
 	// OneToMany relationships
-	@OneToMany(mappedBy = "studio")
+	@OneToMany(mappedBy = "studio", cascade = CascadeType.REMOVE)
 	private List<Room> rooms;
 
 	// ManyToOne relationships
@@ -55,6 +56,9 @@ public class Studio {
 	@ManyToOne
 	@JoinColumn(name = "admin_id")
 	private Admin admin;
+	
+	@Column(name = "price_per_hour", scale = 2)
+	private Double pricePerHour; // precio de la sala por hora
 
 	// Constructor, getters & setters
 	public Studio() {
@@ -122,5 +126,13 @@ public class Studio {
 
 	public void setEndTime(Date endTime) {
 		this.endTime = endTime;
+	}
+	
+	public Double getPricePerHour() {
+		return pricePerHour;
+	}
+
+	public void setPricePerHour(Double pricePerHour) {
+		this.pricePerHour = pricePerHour;
 	}
 }
