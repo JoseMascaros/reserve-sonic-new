@@ -1,6 +1,7 @@
 package pe.edu.upc.reservesonic.model.entity;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -13,6 +14,10 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name = "studios")
@@ -25,22 +30,27 @@ public class Studio {
 
 	@Column(name = "name", length = 40)
 	private String name;
+	
+
+	@Temporal(TemporalType.TIME)
+	@Column(name = "start_time")
+	@DateTimeFormat(pattern = "HH:mm")
+	private Date startTime; // hora de inicio
+	
+
+	@Temporal(TemporalType.TIME)
+	@Column(name = "end_time")
+	@DateTimeFormat(pattern = "HH:mm")
+	private Date endTime; // hora de fin
 
 	// OneToMany relationships
 	@OneToMany(mappedBy = "studio")
 	private List<Room> rooms;
 
-	@OneToMany(mappedBy = "studio")
-	private List<Review> reviews;
-
 	// ManyToOne relationships
 	@ManyToOne
 	@JoinColumn(name = "district_id")
 	private District district;
-
-	@ManyToOne
-	@JoinColumn(name = "reservation_id")
-	private Reservation reservation;
 
 	@ManyToOne
 	@JoinColumn(name = "admin_id")
@@ -49,7 +59,6 @@ public class Studio {
 	// Constructor, getters & setters
 	public Studio() {
 		rooms = new ArrayList<Room>();
-		reviews = new ArrayList<Review>();
 	}
 
 	public Studio(Integer id, String name) {
@@ -81,13 +90,6 @@ public class Studio {
 		this.rooms = rooms;
 	}
 
-	public List<Review> getReviews() {
-		return reviews;
-	}
-
-	public void setReviews(List<Review> reviews) {
-		this.reviews = reviews;
-	}
 
 	public District getDistrict() {
 		return district;
@@ -97,13 +99,6 @@ public class Studio {
 		this.district = district;
 	}
 
-	public Reservation getReservation() {
-		return reservation;
-	}
-
-	public void setReservation(Reservation reservation) {
-		this.reservation = reservation;
-	}
 
 	public Admin getAdmin() {
 		return admin;
@@ -113,5 +108,19 @@ public class Studio {
 		this.admin = admin;
 	}
 
+	public Date getStartTime() {
+		return startTime;
+	}
 
+	public void setStartTime(Date startTime) {
+		this.startTime = startTime;
+	}
+
+	public Date getEndTime() {
+		return endTime;
+	}
+
+	public void setEndTime(Date endTime) {
+		this.endTime = endTime;
+	}
 }

@@ -70,7 +70,7 @@ public class User { // Musician
 
 	// ManyToOne relationships
 	@ManyToOne
-	@JoinColumn(name = "district_id", nullable = false)
+	@JoinColumn(name = "district_id")
 	private District district;
 
 	// Constructor, getters & setters

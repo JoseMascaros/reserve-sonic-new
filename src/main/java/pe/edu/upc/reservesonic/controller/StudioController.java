@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import pe.edu.upc.reservesonic.model.entity.District;
 import pe.edu.upc.reservesonic.model.entity.Studio;
+import pe.edu.upc.reservesonic.service.crud.DistrictService;
 import pe.edu.upc.reservesonic.service.crud.StudioService;
 
 @Controller
@@ -23,6 +25,9 @@ public class StudioController {
 
 	@Autowired
 	private StudioService studioService;
+	
+	@Autowired
+	private DistrictService districtService;
 
 	@GetMapping
 	public String list(Model model) {
@@ -37,13 +42,13 @@ public class StudioController {
 	}
 
 	// Id's
-	@GetMapping("{id}") // GET: /studios/{id}
+	@GetMapping("{id}/viewStudio") // GET: /studios/{id}
 	public String findById(Model model, @PathVariable("id") Integer id) {
 		try {
 			Optional<Studio> optional = studioService.findById(id);
 			if (optional.isPresent()) {
 				model.addAttribute("studio", optional.get());
-				return "studios/viewStudio";
+				//return "studios/viewStudio";
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -58,6 +63,8 @@ public class StudioController {
 			Optional<Studio> optional = studioService.findById(id);
 			if (optional.isPresent()) {
 				model.addAttribute("studioEdit", optional.get());
+				List<District> listDistricts = districtService.getAll();
+				model.addAttribute("listDistricts", listDistricts);
 				return "studios/editStudio";
 			}
 		} catch (Exception e) {
@@ -72,7 +79,7 @@ public class StudioController {
 		try {
 			Studio studioReturn = studioService.update(studio);
 			model.addAttribute("studio", studioReturn);
-			return "studios/viewStudio";
+			//return "studios/viewStudio";
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.err.println(e.getMessage());
@@ -85,6 +92,8 @@ public class StudioController {
 		try {
 			Studio studio = new Studio();
 			model.addAttribute("studioNew", studio);
+			List<District> listDistricts = districtService.getAll();
+			model.addAttribute("listDistricts", listDistricts);
 			return "studios/newStudio";
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -105,6 +114,20 @@ public class StudioController {
 			System.err.println(e.getMessage());
 		}
 
+		return "redirect:/studios";
+	}
+	
+	@GetMapping("{id}/deleteStudio")
+	public String deleteStudio(@PathVariable("id") Integer id ) {
+		try {
+			Optional<Studio> optional = studioService.findById(id);
+			if (optional.isPresent()) {
+				studioService.deleteById(id);
+			}			
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.err.println(e.getMessage());
+		}
 		return "redirect:/studios";
 	}
 

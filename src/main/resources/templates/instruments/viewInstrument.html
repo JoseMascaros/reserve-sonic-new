@@ -15,7 +15,7 @@
 				<div class="col-6">
 
 					<div class="row">
-						<h2 class="pg_title pb-4">Instruments</h2>
+						<h2 class="pg_title pb-4">View Instrument</h2>
 					</div>
 
 					<div class="card mb-3 text-center" style="width: 500px;">
@@ -33,6 +33,9 @@
 							</h5>
 							<h5 class="card-text">
 								Description: <span th:text="${instrument.description}"></span>
+							</h5>
+							<h5 class="card-text">
+								Room Number: <span th:text="${instrument.room.roomNumber}"></span>
 							</h5>
 						</div>
 					</div>

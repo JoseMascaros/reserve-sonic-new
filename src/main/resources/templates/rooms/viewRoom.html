@@ -21,8 +21,12 @@
 						<img class="card-img-top studio_icon mx-auto pt-3" th:src="@{/../images/studiocartoon.jpg}"
 							alt="Card image cap">
 						<div class="card-body">
-							<h5 class="card-title">Id: <span th:text="${room.id}"></span> </h5>
-							<h5 class="card-text">Capacity: <span th:text="${room.capacity}"></span> people.</h5>
+								<h5 class="card-title"> Id: <span th:text="${room.id}"></span> </h5> 
+								<h5 class="card-text"> Room Number: <span th:text="${room.roomNumber}"></span></h5> 
+								<h5 class="card-text"> Capacity: <span th:text="${room.capacity}"></span> people.</h5>
+								<h5 class="card-text"> Speecs: <span th:text="${room.speecs}"></span></h5>
+								<h5 class="card-text"> Price Per Hour: S/ <span th:text="${room.pricePerHour}"></span></h5>
+								<h5 class="card-text"> Studio: <span th:text="${room.studio.name}"></span></h5>
 						</div>
 					</div>
 

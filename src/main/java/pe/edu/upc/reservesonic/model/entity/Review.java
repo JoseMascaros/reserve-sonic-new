@@ -15,15 +15,16 @@ public class Review {
 	private Integer id;
 
 	@Column(name = "content", length = 50, nullable = false)
-	private String name;
+	private String content;
 
 	// ManyToOne relationships
-	@ManyToOne
-	@JoinColumn(name = "studio_id", nullable = false)
-	private Studio studio;
 
 	@ManyToOne
-	@JoinColumn(name = "user_id", nullable = false)
+	@JoinColumn(name = "room_id")
+	private Room room;
+
+	@ManyToOne
+	@JoinColumn(name = "user_id")
 	private User user;
 
 	// Constructor, getters & setters
@@ -39,20 +40,12 @@ public class Review {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
+	public String getContent() {
+		return content;
 	}
 
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public Studio getStudio() {
-		return studio;
-	}
-
-	public void setStudio(Studio studio) {
-		this.studio = studio;
+	public void setContent(String content) {
+		this.content = content;
 	}
 
 	public User getUser() {
@@ -62,5 +55,15 @@ public class Review {
 	public void setUser(User user) {
 		this.user = user;
 	}
+
+	public Room getRoom() {
+		return room;
+	}
+
+	public void setRoom(Room room) {
+		this.room = room;
+	}
+	
+	
 
 }

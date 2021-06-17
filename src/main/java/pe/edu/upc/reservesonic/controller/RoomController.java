@@ -14,12 +14,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import pe.edu.upc.reservesonic.model.entity.Room;
+import pe.edu.upc.reservesonic.model.entity.Studio;
 import pe.edu.upc.reservesonic.service.crud.RoomService;
+import pe.edu.upc.reservesonic.service.crud.StudioService;
 
 @Controller
 @RequestMapping("/rooms")
 @SessionAttributes("roomEdit")
 public class RoomController {
+
+	@Autowired
+	private StudioService studioService;
+	
 	@Autowired
 	private RoomService roomService;
 
@@ -41,7 +47,7 @@ public class RoomController {
 		try {
 			Room roomReturn = roomService.update(room);
 			model.addAttribute("room", roomReturn);
-			return "rooms/viewRoom";
+			//return "rooms/viewRoom";
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.err.println(e.getMessage());
@@ -54,6 +60,8 @@ public class RoomController {
 		try {
 			Room room = new Room();
 			model.addAttribute("roomNew", room);
+			List<Studio> listStudios = studioService.getAll();
+			model.addAttribute("listStudios", listStudios);
 			return "rooms/newRoom";
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -68,7 +76,7 @@ public class RoomController {
 		try {
 			Room roomReturn = roomService.create(room);
 			model.addAttribute("room", roomReturn);
-			return "rooms/viewRoom";
+			//return "rooms/viewRoom";
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.err.println(e.getMessage());
@@ -99,8 +107,25 @@ public class RoomController {
 			Optional<Room> optional = roomService.findById(id);
 			if (optional.isPresent()) {
 				model.addAttribute("roomEdit", optional.get());
+
+				List<Studio> listStudios = studioService.getAll();
+				model.addAttribute("listStudios", listStudios);
 				return "rooms/editRoom";
 			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.err.println(e.getMessage());
+		}
+		return "redirect:/rooms";
+	}
+	
+	@GetMapping("{id}/deleteRoom")
+	public String deleteRoom(@PathVariable("id") Integer id ) {
+		try {
+			Optional<Room> optional = roomService.findById(id);
+			if (optional.isPresent()) {
+				roomService.deleteById(id);
+			}			
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.err.println(e.getMessage());
