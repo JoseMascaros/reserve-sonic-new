@@ -22,37 +22,33 @@
 
 						<form th:action="@{/reservations/savenew}"
 							th:object="${reservationNew}" method="post">
+
+							<label for="room" class="form-label">Room Number</label>
+							<div class="col-sm-6">
+								<select class="form-control" th:field="*{room.id}">
+									<option th:each="r: ${listRooms}" th:value="${r.id}"
+										th:text="${r.roomNumber}"
+										th:selected="(${r.id} == *{room.id})"></option>
+								</select>
+							</div>
+
 							<div class="mb-3">
 								<label for="hour" class="form-label">Reservation hours</label> <input
 									type="number" min="0" class="form-control" th:field="*{hour}"
 									placeholder="hour" autofocus>
 							</div>
 							<div class="mb-3">
-								<label for="startDate" class="form-label">Reservation Date</label> <input
-									type="date" class="form-control" th:field="*{startDate}">
+								<label for="startDate" class="form-label">Reservation
+									Date</label> <input type="date" class="form-control"
+									th:field="*{startDate}">
 							</div>
-							<div class="mb-3">
-								<label for="state" class="form-label">status</label> 
-								<select
-									class="form-control" th:field="*{status}">
-									<option th:value="Registered" th:text="Registered"></option>
-								</select>
-							</div>
-							<div class="mb-3">
-								<label for="room" class="form-label">Room Number</label> 
-								<select
-									class="form-control" th:field="*{room.id}">
-									<option th:value="${room.id}" th:text="${room.roomNumber}"
-									th:selected = "(${room.id} == *{room.id})"></option>
-								</select>
-							</div>
-							<div class="mb-3">
-							</div>
+							
+							<div class="mb-3"></div>
 							<button type="submit" class="btn og_btn">Save</button>
 						</form>
-						
-						<br> <a th:href="@{/reservations}" class="btn og_btn"> <i class="fas fa-angle-double-left"></i>
-							Return
+
+						<br> <a th:href="@{/reservations}" class="btn og_btn"> <i
+							class="fas fa-angle-double-left"></i> Return
 						</a>
 					</div>
 

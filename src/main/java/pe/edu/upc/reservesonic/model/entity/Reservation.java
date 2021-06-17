@@ -35,7 +35,7 @@ public class Reservation {
 	private Integer hour;
 
 	@Column(name = "price")
-	private Float price;
+	private Double price;
 
 	@Column(name = "status", length = 35)
 	private String status;
@@ -49,7 +49,6 @@ public class Reservation {
 	@JoinColumn(name = "room_id")
 	private Room room;
 	
-
 	// Constructor, getters & setters
 	public Reservation() {
 	}
@@ -78,11 +77,11 @@ public class Reservation {
 		this.hour = hour;
 	}
 
-	public Float getPrice() {
+	public Double getPrice() {
 		return price;
 	}
 
-	public void setPrice(Float price) {
+	public void setPrice(Double price) {
 		this.price = price;
 	}
 
@@ -108,6 +107,10 @@ public class Reservation {
 
 	public void setRoom(Room room) {
 		this.room = room;
+	}
+	
+	public void setPrice(Studio studio) {
+		price = hour * studio.getPricePerHour();
 	}
 
 }

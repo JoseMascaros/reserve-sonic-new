@@ -33,6 +33,10 @@
 									type="time" class="form-control" th:field="*{endTime}"
 									placeholder="End Time of studio"><br>
 									
+									<label for="pricePerHour" class="form-label">Price per hour</label> <input
+									type="number" class="form-control" th:field="*{pricePerHour}"
+									placeholder="Price Per Hour" autofocus><br>
+									
 								<label for="district" class="form-label">District</label>
 								<div class="col-sm-6">
 									<select class="form-control" th:field="*{district.id}">
@@ -41,6 +45,7 @@
 											th:selected="(${d.id} == *{district.id})"></option>
 									</select>
 								</div>
+								
 
 							</div>
 

@@ -108,7 +108,7 @@ public class StudioController {
 		try {
 			Studio studioReturn = studioService.create(studio);
 			model.addAttribute("studio", studioReturn);
-			return "studios/viewStudio";
+			//return "studios/viewStudio";
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.err.println(e.getMessage());
