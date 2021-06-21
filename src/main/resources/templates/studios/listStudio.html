@@ -24,6 +24,7 @@
 							<tr>
 								<th scope="col">ID</th>
 								<th scope="col">Studio</th>
+								<th scope="col">District</th>
 								<th scope="col" style="width: 10rem;">Business Hours</th>
 								<th scope="col">Price per hour</th>
 								<th scope="col"></th>
@@ -32,22 +33,26 @@
 						</thead>
 						<tbody>
 							<tr th:each="studio : ${studios}">
-								<th th:text="${studio.id}" scope="row" >1</th>
+								<th th:text="${studio.id}" scope="row">1</th>
 								<td th:text="${studio.name}">2</td>
-								<td th:text="${studio.startTime} +' - ' + ${studio.endTime}">3</td>
+								<th th:text="${studio.district.name}">3</th>
+								<td th:text="${studio.startTime} +' - ' + ${studio.endTime}">4</td>
 								<td th:text="${studio.pricePerHour}">2</td>
 
-								<td> <a th:href="@{'/studios/' + ${studio.id} + '/viewStudio'}" class="btn edit_btn search">
+								<td> <a th:href="@{'/studios/' + ${studio.id} + '/viewStudio'}"
+										class="btn edit_btn search">
 										<i class="fas fa-search"></i>
 									</a> </td>
 
-								<td> <a th:href="@{'/studios/' + ${studio.id} + '/editStudio'}" class="btn edit_btn pencil">
+								<td> <a th:href="@{'/studios/' + ${studio.id} + '/editStudio'}"
+										class="btn edit_btn pencil">
 										<i class="fas fa-pencil-alt"></i> </a></td>
 
-								<td> <a th:href="@{'/studios/' + ${studio.id} + '/deleteStudio'}" class="btn btn-danger"> 
+								<td> <a th:href="@{'/studios/' + ${studio.id} + '/deleteStudio'}"
+										class="btn btn-danger">
 										<i class="far fa-trash-alt"></i> </a></td>
-										
-										
+
+
 							</tr>
 						</tbody>
 					</table>

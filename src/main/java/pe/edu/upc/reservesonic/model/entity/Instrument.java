@@ -29,6 +29,9 @@ public class Instrument {
 	@Column(name = "description", length = 120)
 	private String description;
 
+	@Column(name = "image")
+	private String image;
+
 	// ManyToOne relationships
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "room_id")
@@ -79,4 +82,12 @@ public class Instrument {
 		this.room = room;
 	}
 
+	// Image LINK
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
 }

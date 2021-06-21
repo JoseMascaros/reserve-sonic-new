@@ -20,25 +20,23 @@
 
 						<form th:action="@{/rooms/savenew}" th:object="${roomNew}" method="post">
 							<div class="mb-3">
-							
-								<label for="roomNumber" class="form-label">Room Number</label> <input
-									type="number" min="1" class="form-control" th:field="*{roomNumber}"
-									placeholder="Room Number" autofocus><br>
-									
-								<label for="Capacity" class="form-label">Capacity</label> <input
-									type="number" min="1" class="form-control" th:field="*{capacity}"
-									placeholder="Capicity" autofocus><br>
-									
+
+								<label for="roomNumber" class="form-label">Room Number</label> <input type="number"
+									min="1" class="form-control" th:field="*{roomNumber}" placeholder="Room Number"
+									autofocus><br>
+
+								<label for="Capacity" class="form-label">Capacity</label> <input type="number" min="1"
+									class="form-control" th:field="*{capacity}" placeholder="Capicity" autofocus><br>
+
 								<label for="speecs" class="form-label">Specs</label>
-								<textarea class="form-control" th:field="*{speecs}"
-									maxlength = "120"
-									placeholder="Speecs of Room"></textarea><br>
-									
+								<textarea class="form-control" th:field="*{speecs}" maxlength="120"
+									placeholder="Specs of Room"></textarea><br>
+
 								<label for="studio" class="form-label">Studio</label>
 								<div class="col-sm-6">
 									<select class="form-control" th:field="*{studio.id}">
-										<option th:each="s: ${listStudios}" th:value="${s.id}"
-											th:text="${s.name}" th:selected="(${s.id} == *{studio.id})"></option>
+										<option th:each="s: ${listStudios}" th:value="${s.id}" th:text="${s.name}"
+											th:selected="(${s.id} == *{studio.id})"></option>
 									</select>
 								</div>
 

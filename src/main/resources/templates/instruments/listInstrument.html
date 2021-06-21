@@ -26,6 +26,7 @@
 								<th scope="col">Name</th>
 								<th scope="col">Brand</th>
 								<th scope="col">Description</th>
+								<th scope="col">Image</th>
 								<th scope="col"></th>
 								<th scope="col"></th>
 								<th scope="col"></th>
@@ -37,9 +38,11 @@
 								<td th:text="${instrument.name}">Mark</td>
 								<td th:text="${instrument.brand}"></td>
 								<td th:text="${instrument.description}"></td>
+								<td th:href="${instrument.image}"><img th:src="${instrument.image}"
+										style="max-width: 150px;" alt=""></td>
 
-								<td> <a th:href="@{'/instruments/' + ${instrument.id} + '/viewInstrument'}" class="btn edit_btn search"> <i
-											class="fas fa-search"></i>
+								<td> <a th:href="@{'/instruments/' + ${instrument.id} + '/viewInstrument'}"
+										class="btn edit_btn search"> <i class="fas fa-search"></i>
 									</a> </td>
 
 								<td> <a th:href="@{'/instruments/' + ${instrument.id} + '/editInstrument'}"

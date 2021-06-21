@@ -23,28 +23,37 @@
 						<form th:action="@{/instruments/savenew}" th:object="${instrumentNew}" method="post">
 							<div class="mb-3">
 
+								<!--NAME-->
 								<label for="name" class="form-label">Name</label> <input type="text"
 									class="form-control" th:field="*{name}" placeholder="Name of Instrument"><br>
 
+								<!--BRAND-->
 								<label for="brand" class="form-label">Brand</label> <input type="text"
 									class="form-control" th:field="*{brand}" placeholder="Brand of Instrument"><br>
 
+								<!--DESCRIPTION-->
 								<label for="description" class="form-label">Description</label> <input type="text"
 									class="form-control" th:field="*{description}"
 									placeholder="Description of Instrument"><br>
-									
+
+								<!--ROOM IT BELONGS-->
 								<label for="room" class="form-label">Room</label>
 								<div class="col-sm-6">
 									<select class="form-control" th:field="*{room.id}">
-										<option th:each="r: ${listRooms}" th:value="${r.id}"
-											th:text="${r.roomNumber}"
+										<option th:each="r: ${listRooms}" th:value="${r.id}" th:text="${r.roomNumber}"
 											th:selected="(${r.id} == *{room.id})"></option>
 									</select>
 								</div>
 
-							</div>
+								<!--UPLOAD IMAGE-->
+								<label class="custom-file-label form-label" for="customFile">Product Image</label>
+								<div class="custom-file mb-4">
+									<input type="file" th:field="*{image}" name="file" class="custom-file-input"
+										id="customFile">
+								</div>
 
-							<button type="submit" class="btn og_btn">Save</button>
+								<!--SAVE INSTRUMENTO BUTTON-->
+								<button type="submit" class="btn og_btn my-3">Save</button>
 						</form>
 						<br> <a th:href="@{/instruments}" class="btn og_btn"> <i class="fas fa-angle-double-left"></i>
 							Return

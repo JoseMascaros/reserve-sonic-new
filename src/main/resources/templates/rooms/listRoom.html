@@ -25,6 +25,7 @@
 								<th scope="col">#</th>
 								<th scope="col">Room Number</th>
 								<th scope="col">Capacity</th>
+								<th scope="col">Studio</th>
 								<th scope="col"></th>
 								<th scope="col"></th>
 								<th scope="col"></th>
@@ -35,6 +36,7 @@
 								<th th:text="${room.id}" scope="row">1</th>
 								<td th:text="${room.roomNumber}">Mark</td>
 								<td th:text="${room.capacity}">Mark</td>
+								<td th:text="${room.studio.name}">Mark</td>
 
 								<td> <a th:href="@{'/rooms/' + ${room.id} + '/viewRoom'}" class="btn edit_btn search">
 										<i class="fas fa-search"></i>
@@ -43,7 +45,7 @@
 								<td> <a th:href="@{'/rooms/' + ${room.id} + '/editRoom'}" class="btn edit_btn pencil">
 										<i class="fas fa-pencil-alt"></i> </a></td>
 
-								<td> <a th:href="@{'/rooms/' + ${room.id} + '/deleteRoom'}" class="btn btn-danger"> 
+								<td> <a th:href="@{'/rooms/' + ${room.id} + '/deleteRoom'}" class="btn btn-danger">
 										<i class="far fa-trash-alt"></i> </a></td>
 							</tr>
 						</tbody>
