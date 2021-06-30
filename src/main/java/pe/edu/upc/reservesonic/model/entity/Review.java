@@ -2,6 +2,8 @@ package pe.edu.upc.reservesonic.model.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -11,11 +13,15 @@ import javax.persistence.Table;
 @Table(name = "reviews")
 public class Review {
 	@Id
-	@Column(name = "review_id", columnDefinition = "NUMERIC(4)", nullable = false)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@Column(name = "review_id", columnDefinition = "NUMERIC(4)")
 	private Integer id;
 
 	@Column(name = "content", length = 50, nullable = false)
 	private String content;
+
+	@Column(name = "qualification", columnDefinition = "NUMERIC(5)")
+	private Integer qualification;
 
 	// ManyToOne relationships
 
@@ -63,7 +69,13 @@ public class Review {
 	public void setRoom(Room room) {
 		this.room = room;
 	}
-	
-	
+
+	public Integer getQualification() {
+		return qualification;
+	}
+
+	public void setQualification(Integer qualification) {
+		this.qualification = qualification;
+	}
 
 }
