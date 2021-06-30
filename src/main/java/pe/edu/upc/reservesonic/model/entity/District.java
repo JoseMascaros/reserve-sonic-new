@@ -38,7 +38,6 @@ public class District {
 
 	// Constructor, getters & setters
 	public District() {
-
 		users = new ArrayList<User>();
 		admins = new ArrayList<Admin>();
 		studios = new ArrayList<Studio>();
