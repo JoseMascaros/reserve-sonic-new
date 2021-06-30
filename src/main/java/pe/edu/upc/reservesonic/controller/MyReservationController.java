@@ -11,8 +11,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import pe.edu.upc.reservesonic.model.entity.Reservation;
-import pe.edu.upc.reservesonic.model.entity.Room;
-import pe.edu.upc.reservesonic.model.entity.Studio;
 import pe.edu.upc.reservesonic.service.crud.ReservationService;
 
 @Controller

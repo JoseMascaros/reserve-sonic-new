@@ -6,8 +6,6 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -30,11 +28,6 @@ public class District {
 
 	@OneToMany(mappedBy = "district")
 	private List<Studio> studios;
-
-	// ManyToOne relationships
-	@ManyToOne
-	@JoinColumn(name = "region_id")
-	private Region region;
 
 	// Constructor, getters & setters
 	public District() {
@@ -81,14 +74,6 @@ public class District {
 
 	public void setStudios(List<Studio> studios) {
 		this.studios = studios;
-	}
-
-	public Region getRegion() {
-		return region;
-	}
-
-	public void setRegion(Region region) {
-		this.region = region;
 	}
 
 }
