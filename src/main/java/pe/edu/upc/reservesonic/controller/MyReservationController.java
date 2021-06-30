@@ -34,7 +34,7 @@ public class MyReservationController {
 		return "myReservations/listReservation";
 	}
 	
-	@GetMapping("{id}")
+	@GetMapping("{id}/viewReservation")
 	public String findById(Model model, @PathVariable("id") Integer id) {
 		try {
 			Optional<Reservation> optional = reservationService.findById(id);

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="./fragments/navbar :: head">
+</head>
+
+<body>
+
+	<div th:replace="./fragments/navbar :: navbar"></div>
+
+
+	<main class="col-md-9 ms-sm-auto col-lg-10 px-5">
+		<div class="container">
+			<div class="row">
+				<div class="col-6">
+
+					<div class="row">
+						<h2 class="pg_title pb-4">View Review</h2>
+					</div>
+
+					<div class="card mb-3 text-center" style="width: 500px;">
+						<div class="card-body">
+							<h5 class="card-title">
+								Id: <span th:text="${review.id}"></span>
+							</h5>
+							<h5 class="card-text">
+								Content: <span th:text="${review.content}"></span>
+							</h5>
+							<h5 class="card-text">
+								Qualification: <span th:text="${review.qualification}"></span>
+							</h5>
+						</div>
+					</div>
+
+					<div class="pt-3">
+						<a th:href="@{/reviews}" class="btn og_btn" style="width: 500px;">
+							<i class="fas fa-angle-double-left"></i> Return
+						</a>
+					</div>
+
+
+				</div>
+			</div>
+		</div>
+	</main>
+	<div th:replace="./fragments/navbar :: javascript"></div>
+
+</body>
+
+</html>

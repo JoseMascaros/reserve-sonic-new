@@ -9,14 +9,27 @@
 	<div th:replace="./fragments/navbar :: navbar"></div>
 
 	<main class="col-md-9 ms-sm-auto col-lg-10 px-5">
-		<div class="container">
-			<div class="row">
-				<div class="col">
 
-					<div class="row">
-						<h2 class="pg_title">
-							Rooms
-						</h2>
+		<div class="row">
+			<h2 class="pg_title">Rooms </h2>
+		</div>
+		<section style="margin: 20px;">
+			<div class="row">
+
+				<div th:each="room : ${rooms}" class="col-sm-3" style="padding: 5px;">
+					<div class="card mb-3 text-center" style="width: 15rem;">
+						<img th:src="@{/../images/studiocartoon.jpg}" class="card-img-top studio_icon mx-auto pt-3"
+							alt="Card image cap">
+						<div class="card-body">
+							<h5 class="card-title"> ID: <span th:text="${room.id}"></span></h5>
+							<h6 class="card-text"> Studio: <span th:text="${room.studio.name}"></span></h6>
+							<h6 class="card-text"> Room Number: <span th:text="${room.roomNumber}"></span></h6>
+							<h6 class="card-text"> Capacity: <span th:text="${room.capacity}"></span></h6>
+							<br>
+							<a th:href="@{'/rooms/' + ${room.id} + '/viewRoom'}" class="btn edit_btn search"> <i class="fas fa-search"></i></a>
+							<a th:href="@{'/rooms/' + ${room.id} + '/editRoom'}" class="btn edit_btn pencil"> <i class="fas fa-pencil-alt"></i> </a>
+							<a th:href="@{'/rooms/' + ${room.id} + '/deleteRoom'}" class="btn btn-danger"> <i class="fas fa-trash-alt"></i> </a>
+						</div>
 					</div>
 
 					<table class="table table-hover">
@@ -53,8 +66,11 @@
 
 					<a th:href="@{'/rooms/new'}" class="btn og_btn"> <i class="fas fa-plus"></i> New</a>
 				</div>
+
 			</div>
-		</div>
+			<a th:href="@{'/rooms/new'}" class="btn og_btn"> <i class="fas fa-plus"></i> New</a>
+		</section>
+
 	</main>
 	<div th:replace="./fragments/navbar :: javascript"></div>
 </body>
