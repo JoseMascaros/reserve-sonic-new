@@ -6,7 +6,6 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -40,14 +39,14 @@ public class Room {
 	@OneToMany(mappedBy = "room", cascade = CascadeType.REMOVE)
 	private List<Instrument> instruments;
 		
-	@OneToMany(mappedBy = "room")
+	@OneToMany(mappedBy = "room", cascade = CascadeType.REMOVE)
 	private List<Review> reviews;
 
-	@OneToMany(mappedBy = "room")
+	@OneToMany(mappedBy = "room", cascade = CascadeType.REMOVE)
 	private List<Reservation> reservations;
 
 	// ManyToOne relationships
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne
 	@JoinColumn(name = "studio_id")
 	private Studio studio;
 

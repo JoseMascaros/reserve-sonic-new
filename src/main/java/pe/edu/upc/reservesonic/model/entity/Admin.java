@@ -3,6 +3,7 @@ package pe.edu.upc.reservesonic.model.entity;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -28,7 +29,7 @@ public class Admin { //Owner
 	private String description;
 
 	// OneToMany relationships
-	@OneToMany(mappedBy = "admin")
+	@OneToMany(mappedBy = "admin", cascade = CascadeType.REMOVE)
 	private List<Studio> studios;
 
 	// ManyToOne relationships

@@ -3,6 +3,7 @@ package pe.edu.upc.reservesonic.model.entity;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -20,7 +21,7 @@ public class Region {
 	private String name;
 
 	// OneToMany relationships
-	@OneToMany(mappedBy = "region")
+	@OneToMany(mappedBy = "region", cascade = CascadeType.REMOVE)
 	private List<District> districts;
 
 	// Constructor, getters & setters

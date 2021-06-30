@@ -36,7 +36,8 @@
 								<td th:text="${reservation.price}">5</td>
 								<td><a th:href="@{'/myReservations/' + ${reservation.id}}"
 										class="btn edit_btn search"><i class="fas fa-search"></i></a></td>
-								<td><a href="#" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a></td>
+								<td> <a th:href="@{'/reservations/' + ${reservation.id} + '/deleteReservation'}" class="btn btn-danger"> 
+										<i class="far fa-trash-alt"></i> </a></td>
 							</tr>
 						</tbody>
 					</table>

@@ -3,6 +3,7 @@ package pe.edu.upc.reservesonic.model.entity;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -22,13 +23,13 @@ public class District {
 	private String name;
 
 	// OneToMany relationships
-	@OneToMany(mappedBy = "district")
+	@OneToMany(mappedBy = "district", cascade = CascadeType.REMOVE)
 	private List<User> users;
 
-	@OneToMany(mappedBy = "district")
+	@OneToMany(mappedBy = "district", cascade = CascadeType.REMOVE)
 	private List<Admin> admins;
 
-	@OneToMany(mappedBy = "district")
+	@OneToMany(mappedBy = "district", cascade = CascadeType.REMOVE)
 	private List<Studio> studios;
 
 	// ManyToOne relationships

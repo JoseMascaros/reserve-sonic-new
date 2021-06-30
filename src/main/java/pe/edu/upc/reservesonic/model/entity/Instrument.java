@@ -2,7 +2,6 @@ package pe.edu.upc.reservesonic.model.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -30,7 +29,7 @@ public class Instrument {
 	private String description;
 
 	// ManyToOne relationships
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne
 	@JoinColumn(name = "room_id")
 	private Room room;
 

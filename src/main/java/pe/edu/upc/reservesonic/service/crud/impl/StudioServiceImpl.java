@@ -1,5 +1,7 @@
 package pe.edu.upc.reservesonic.service.crud.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
@@ -16,6 +18,11 @@ public class StudioServiceImpl implements StudioService {
 	@Override
 	public JpaRepository<Studio, Integer> getRepository() {
 		return studioRepository;
+	}
+
+	@Override
+	public List<Studio> findByName(String name) throws Exception {
+		return studioRepository.findByName(name);
 	}
 
 }
