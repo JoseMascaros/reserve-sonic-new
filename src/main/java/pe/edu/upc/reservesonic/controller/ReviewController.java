@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import pe.edu.upc.reservesonic.model.entity.Review;
 import pe.edu.upc.reservesonic.model.entity.Room;
-import pe.edu.upc.reservesonic.model.entity.Studio;
 import pe.edu.upc.reservesonic.service.crud.ReviewService;
 import pe.edu.upc.reservesonic.service.crud.RoomService;
 
