@@ -12,12 +12,13 @@
 			
 		<div class="row">
 			<h2 class="pg_title">Studios Available</h2>
+			
 		</div>
 		<section style="margin: 20px;">
 			<div class="row">
 
 				<div th:each="studio : ${studios}" class="col-sm-3" style="padding: 5px;">
-					<div class="card mb-3 text-center shadow border-0 rounded-3" style="width: 15rem;">
+					<div class="card mb-3 text-center" style="width: 15rem;">
 						<img th:src="@{/../images/studiocartoon.jpg}" class="card-img-top studio_icon mx-auto pt-3"
 							alt="Card image cap">
 						<div class="card-body">
@@ -25,8 +26,7 @@
 							<h6 class="card-text"> Start time: <span th:text="${studio.startTime}"></span></h6>
 							<h6 class="card-text"> End time: <span th:text="${studio.endTime}"></span></h6>
 							<h6 class="card-text"> District: <span th:text="${studio.district.name}"></span></h6>
-							<h6 class="card-text"> Price Per Hour: S/ <span th:text="${studio.pricePerHour}"></span>
-							</h6>
+							<h6 class="card-text"> Price Per Hour: S/ <span th:text="${studio.pricePerHour}"></span></h6>
 							<br>
 							<a th:href="@{'/reservations/new/'+${studio.id}}" class="btn og_btn">Reserve</a>
 						</div>
