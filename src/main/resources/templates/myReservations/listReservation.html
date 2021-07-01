@@ -9,41 +9,35 @@
 	<div th:replace="./fragments/navbar :: navbar"></div>
 
 	<main class="col-md-9 ms-sm-auto col-lg-10 px-5">
-		<div class="container">
-			<div class="row">
-				<div class="col">
 
-					<div class="row">
-						<h2 class="pg_title">My Reservations</h2>
-					</div>
-					<table class="table table-hover">
-						<thead>
-							<tr>
-								<th scope="col">ID</th>
-								<th scope="col">Room</th>
-								<th scope="col">Studio</th>
-								<th scope="col" style="width: 10rem;">Reservation Date</th>
-								<th scope="col">Price</th>
-								<th scope="col"></th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr th:each="reservation : ${reservations}">
-								<th th:text="${reservation.id}" scope="row">1</th>
-								<td th:text="${reservation.room.roomNumber}">2</td>
-								<td th:text="${reservation.room.studio.name}">3</td>
-								<td th:text="${reservation.startDate}">4</td>
-								<td th:text="${reservation.price}">5</td>
-								<td><a th:href="@{'/myReservations/' + ${reservation.id}}"
-										class="btn edit_btn search"><i class="fas fa-search"></i></a></td>
-								<td> <a th:href="@{'/reservations/' + ${reservation.id} + '/deleteReservation'}" class="btn btn-danger"> 
-										<i class="far fa-trash-alt"></i> </a></td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-			</div>
+		<div class="row">
+			<h2 class="pg_title">My reservations</h2>
 		</div>
+		<section style="margin: 20px;">
+			<div class="row">
+
+				<div th:each="reservation : ${reservations}" class="col-sm-3" style="padding: 5px;">
+					<div class="card mb-3 text-center" style="width: 17rem;">
+						<img th:src="@{/../images/studiocartoon.jpg}" class="card-img-top studio_icon mx-auto pt-3"
+							alt="Card image cap">
+						<div class="card-body">
+							<h6 class="card-text"> Room: <span th:text="${reservation.room.roomNumber}"></span></h6>
+							<h6 class="card-text"> Studio: <span th:text="${reservation.room.studio.name}"></span></h6>
+							<h6 class="card-text"> Reservation Date: <span th:text="${reservation.startDate}"></span></h6>
+							<h6 class="card-text"> Price: S/ <span th:text="${reservation.price}"></span></h6>
+							<br>
+							<a th:href="@{'/myReservations/' + ${reservation.id} + '/viewReservation'}" class="btn edit_btn search"> <i class="fas fa-search"></i></a>
+							<a th:href="@{'/myReservations/' + ${reservation.id} + '/deleteReservation'}" class="btn btn-danger"> <i class="fas fa-trash-alt"></i> </a>
+							
+							<a th:href="@{'/reviews/new'}"  class="btn og_btn">Review <i class="fas fa-check-double"></i></a>
+						
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</section>
+
 	</main>
 	<div th:replace="./fragments/navbar :: javascript"></div>
 </body>

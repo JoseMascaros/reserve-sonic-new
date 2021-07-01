@@ -24,7 +24,6 @@ public class Room {
 	@Column(name = "room_id", columnDefinition = "DECIMAL(4)")
 	private Integer id;
 	
-
 	@Column(name = "room_number", columnDefinition = "NUMERIC(4)", nullable = false)
 	private Integer roomNumber; // numero de la sala
 
