@@ -48,6 +48,21 @@ public class ReservationController {
 		return "reservations/listAllStudios";
 	}
 	
+
+	@GetMapping("studios")
+	public String searchStudios(Model model, @ModelAttribute("studioSearch") Studio studioSearch) {
+		studioSearch.setName(studioSearch.getName());
+		List<Studio> studios = null;
+		try {
+			studios = studioService.findByName(studioSearch.getName());
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		model.addAttribute("studios", studios);
+		model.addAttribute("studioSearch", studioSearch);
+		return "reservations/studios-result";
+	}
 	
 	//reserva una sala
 	@GetMapping("new/{id}")
@@ -76,7 +91,6 @@ public class ReservationController {
 			reservation.setPrice(studioaux);
 			Reservation reservationReturn = reservationService.create(reservation);
 			model.addAttribute("reservation", reservationReturn);
-			//return "reservations/viewReservation";
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
@@ -85,4 +99,18 @@ public class ReservationController {
 		return "redirect:/myReservations";
 	}
 	
+
+	@GetMapping("{id}/deleteReservation")
+	public String deleteStudio(@PathVariable("id") Integer id ) {
+		try {
+			Optional<Reservation> optional = reservationService.findById(id);
+			if (optional.isPresent()) {
+				reservationService.deleteById(id);
+			}			
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.err.println(e.getMessage());
+		}
+		return "redirect:/myReservations";
+	}
 }

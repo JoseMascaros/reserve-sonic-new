@@ -12,8 +12,15 @@
       data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <input class="form-control form-control-light w-100 shadow" type="text" placeholder="Search" aria-label="Search">
-  </header>
+    
+		<form class="d-flex" th:action="@{/reservations/studios}"
+			th:object="${studioSearch}" method="get">
+			<input class="form-control me-2" type="search" placeholder="Name of studio" 
+				aria-label="Search">
+	        </button>
+		</form>
+
+	</header>
 
   <div class="container-fluid">
     <div class="row">
