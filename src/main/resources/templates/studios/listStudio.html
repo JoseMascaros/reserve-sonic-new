@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="./fragments/navbar :: head">
+</head>
+
+<body>
+
+	<div th:replace="./fragments/navbar :: navbar">
+
+
+	</div>
+
+
+	<main class="col-md-9 ms-sm-auto col-lg-10 px-5">
+
+		<div class="row row-cols-auto">
+			<div class="col">
+				<h2 class="pg_title">Studios</h2>
+			</div>
+
+			<div class="col">
+				<!-- NEW -->
+				<a th:href="@{'/studios/new'}" class="btn og_btn"> <i class="fas fa-plus"></i> New
+				</a>
+			</div>
+		</div>
+
+
+
+		<section style="margin: 20px;">
+			<div class="row">
+
+				<div th:each="studio : ${studios}" class="col-sm-3" style="padding: 5px;">
+					<div class="card mb-3 text-center shadow border-0 rounded-3" style="width: 17rem;">
+						<img class="card-img-top studio_icon mx-auto pt-3" th:src="@{/../images/studiocartoon.jpg}"
+							alt="Card image cap">
+						<div class="card-body">
+							<h5 class="card-title">
+								Id: <span th:text="${studio.id}"></span>
+							</h5>
+							<h5 class="card-text">
+								Name: <span th:text="${studio.name}"></span>
+							</h5>
+							<h5 class="card-text">
+								Start Time: <span th:text="${studio.startTime}"></span>
+							</h5>
+							<h5 class="card-text">
+								End Time: <span th:text="${studio.endTime}"></span>
+							</h5>
+							<h5 class="card-text">
+								Price per hour: <span th:text="${studio.pricePerHour}"></span>
+							</h5>
+							<h5 class="card-text">
+								District: <span th:text="${studio.district.name}"></span>
+							</h5>
+							<br>
+							<!-- VIEW -->
+							<a th:href="@{'/studios/' + ${studio.id} + '/viewStudio'}" class="btn edit_btn search mx-3">
+								<i class="fas fa-search"></i></a>
+							<!-- EDIT -->
+							<a th:href="@{'/studios/' + ${studio.id} + '/editStudio'}" class="btn edit_btn pencil mx-3">
+								<i class="fas fa-pencil-alt"></i>
+							</a>
+							<!-- DELETE -->
+							<a th:href="@{'/studios/' + ${studio.id} + '/deleteStudio'}" class="btn btn-danger mx-3"> <i
+									class="fas fa-trash-alt"></i>
+							</a>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+		</section>
+
+		<!-- <div class="container">
+			<div class="row">
+				<div class="col">
+
+					<div class="row">
+						<h2 class="pg_title">
+							Studios
+						</h2>
+					</div>
+
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th scope="col">ID</th>
+								<th scope="col">Studio</th>
+								<th scope="col">District</th>
+								<th scope="col" style="width: 10rem;">Business Hours</th>
+								<th scope="col">Price per hour</th>
+								<th scope="col"></th>
+								<th scope="col"></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="studio : ${studios}">
+								<th th:text="${studio.id}" scope="row">1</th>
+								<td th:text="${studio.name}">2</td>
+								<th th:text="${studio.district.name}">3</th>
+								<td th:text="${studio.startTime} +' - ' + ${studio.endTime}">4</td>
+								<td th:text="${studio.pricePerHour}">2</td>
+
+								<td> <a th:href="@{'/studios/' + ${studio.id} + '/viewStudio'}"
+										class="btn edit_btn search">
+										<i class="fas fa-search"></i>
+									</a> </td>
+
+								<td> <a th:href="@{'/studios/' + ${studio.id} + '/editStudio'}"
+										class="btn edit_btn pencil">
+										<i class="fas fa-pencil-alt"></i> </a></td>
+
+								<td> <a th:href="@{'/studios/' + ${studio.id} + '/deleteStudio'}"
+										class="btn btn-danger">
+										<i class="far fa-trash-alt"></i> </a></td>
+
+
+							</tr>
+						</tbody>
+					</table>
+
+					<a th:href="@{'/studios/new'}" class="btn og_btn"> <i class="fas fa-plus"></i> New</a>
+				</div>
+			</div>
+		</div> -->
+	</main>
+	<div th:replace="./fragments/navbar :: javascript"></div>
+</body>
+
+</html>

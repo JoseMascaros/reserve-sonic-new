@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="./fragments/navbar :: head">
+</head>
+
+<body>
+
+	<div th:replace="./fragments/navbar :: navbar"></div>
+
+	<main class="col-md-9 ms-sm-auto col-lg-10 px-5">
+
+		<div class="row">
+			<h2 class="pg_title">All Reviews</h2>
+		</div>
+		<section style="margin: 20px;">
+			<div class="row">
+
+				<div th:each="review : ${reviews}" class="col-sm-3" style="padding: 5px;">
+					<div class="card mb-3 text-center shadow border-0 rounded-3" style="width: 15rem;">
+						<img th:src="@{/../images/studiocartoon.jpg}" class="card-img-top studio_icon mx-auto pt-3"
+							alt="Card image cap">
+						<div class="card-body">
+							<h5 class="card-title">
+								ID: <span th:text="${review.id}"></span>
+							</h5>
+							<h6 class="card-text">
+								Room: <span th:text="${review.room.roomNumber}"></span>
+							</h6>
+							<h6 class="card-text">
+								Studio: <span th:text="${review.room.studio.name}"></span>
+							</h6>
+							<h6 class="card-text">
+								Content: <span th:text="${review.content}"></span>
+							</h6>
+							<h6 class="card-text">
+								Qualification: <span th:text="${review.qualification}"></span>
+							</h6>
+
+							<br>
+
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</section>
+
+	</main>
+	<div th:replace="./fragments/navbar :: javascript"></div>
+</body>
+
+</html>

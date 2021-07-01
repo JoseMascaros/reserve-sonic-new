@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="./fragments/navbar :: head">
+</head>
+
+<body>
+
+
+	<div th:replace="./fragments/navbar :: navbar">
+	</div>
+
+
+	<main class="col-md-9 ms-sm-auto col-lg-10 px-5">
+
+		<!-- <form th:action="@{'/search/studios'}" th:object="${studioSearch}" method="get">
+			<div class="row mb-4 row-cols-auto">
+
+				<input class="form-control col form-control-light shadow rounded-3 mx-3" type="search"
+					placeholder="Search" aria-label="Search" style="width: 900px;" th:field="*{studios}">
+				<button type="submit" class="btn og_btn mx-3 shadow">Search</button>
+			</div>
+		</form> -->
+		<div class="row">
+			<h2 class="pg_title">Studios Available</h2>
+		</div>
+
+
+		<section style="margin: 20px;">
+			<div class="row">
+
+				<div th:each="studio : ${studios}" class="col-sm-3" style="padding: 5px;">
+					<div class="card mb-3 text-center shadow border-0 rounded-3" style="width: 15rem;">
+						<img th:src="@{/../images/studiocartoon.jpg}" class="card-img-top studio_icon mx-auto pt-3"
+							alt="Card image cap">
+						<div class="card-body">
+							<h5 class="card-title"> Studio: <span th:text="${studio.name}"></span></h5>
+							<h6 class="card-text"> Start time: <span th:text="${studio.startTime}"></span></h6>
+							<h6 class="card-text"> End time: <span th:text="${studio.endTime}"></span></h6>
+							<h6 class="card-text"> District: <span th:text="${studio.district.name}"></span></h6>
+							<h6 class="card-text"> Price Per Hour: S/ <span th:text="${studio.pricePerHour}"></span>
+							</h6>
+							<br>
+							<a th:href="@{'/reservations/new/'+${studio.id}}" class="btn og_btn">Reserve</a>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</section>
+
+	</main>
+	<div th:replace="./fragments/navbar :: javascript"></div>
+</body>
+
+</html>

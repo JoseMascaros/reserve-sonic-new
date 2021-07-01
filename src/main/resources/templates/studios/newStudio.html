@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="./fragments/navbar :: head">
+</head>
+
+<body>
+	<div th:replace="./fragments/navbar :: navbar"></div>
+
+	<main class="col-md-9 ms-sm-auto col-lg-10 px-5">
+		<div class="container">
+			<div class="row">
+				<div class="col-6">
+
+					<div class="row">
+						<h2 class="pg_title">New Studio</h2>
+					</div>
+
+					<div class="card-body">
+
+						<form th:action="@{/studios/savenew}" th:object="${studioNew}" method="post">
+							<div class="mb-3">
+							
+								<label for="name" class="form-label">Name</label> <input
+									type="text" class="form-control" th:field="*{name}"
+									placeholder="Name of studio" autofocus><br>
+									
+								<label for="startTime" class="form-label">Start Time</label> <input
+									type="time" class="form-control" th:field="*{startTime}"
+									placeholder="Start Time of studio"><br>
+									
+								<label for="endTime" class="form-label">End Time</label> <input
+									type="time" class="form-control" th:field="*{endTime}"
+									placeholder="End Time of studio"><br>
+									
+									<label for="pricePerHour" class="form-label">Price per hour</label> <input
+									type="number" class="form-control" th:field="*{pricePerHour}"
+									placeholder="Price Per Hour" autofocus><br>
+									
+								<label for="district" class="form-label">District</label>
+								<div class="col-sm-6">
+									<select class="form-control" th:field="*{district.id}">
+										<option th:each="d: ${listDistricts}" th:value="${d.id}"
+											th:text="${d.name}"
+											th:selected="(${d.id} == *{district.id})"></option>
+									</select>
+								</div>
+								
+
+							</div>
+
+							<button type="submit" class="btn og_btn">Save</button>
+						</form>
+						<br> <a th:href="@{/studios}" class="btn og_btn"> <i class="fas fa-angle-double-left"></i>
+							Return
+						</a>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</main>
+	<div th:replace="./fragments/navbar :: javascript"></div>
+</body>
+
+</html>

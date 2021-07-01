@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="./fragments/navbar :: head">
+</head>
+
+<body>
+
+	<div th:replace="./fragments/navbar :: navbar"></div>
+
+
+	<main class="col-md-9 ms-sm-auto col-lg-10 px-5">
+		<div class="container">
+			<div class="row">
+				<div class="col-6">
+
+					<div class="row">
+						<h2 class="pg_title">My Review</h2>
+					</div>
+
+					<div class="card-body">
+
+						<form th:action="@{/reviews/savenew}" th:object="${reviewNew}"
+							method="post">
+							<div class="mb-3">
+
+								<label for="name" class="form-label">Content</label> <input
+									type="text" class="form-control" th:field="*{content}"
+									placeholder="Review of Room"><br> <label
+									for="qualification" class="form-label">Qualification</label> <input
+									type="number" class="form-control" th:field="*{qualification}"
+									placeholder="Qualification"><br> <label for="room"
+									class="form-label">Room Number</label>
+								<div class="col-sm-6">
+									<select class="form-control" th:field="*{room.id}">
+										<option th:each="r: ${listRooms}" th:value="${r.id}"
+											th:text="${r.studio.name}+'-'+${r.roomNumber}"
+											th:selected="(${r.id} == *{room.id})"></option>
+									</select>
+								</div>
+								<br> <br>
+
+							</div>
+
+							<button type="submit" class="btn og_btn">Save</button>
+						</form>
+						<br> <a th:href="@{/reviews}" class="btn og_btn"> <i
+							class="fas fa-angle-double-left"></i> Return
+						</a>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</main>
+	<div th:replace="./fragments/navbar :: javascript"></div>
+</body>
+
+</html>
