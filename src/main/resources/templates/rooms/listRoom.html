@@ -13,12 +13,15 @@
 		<div class="row">
 			<h2 class="pg_title">Rooms</h2>
 		</div>
+		<a th:href="@{'/rooms/new'}" class="btn og_btn"> <i
+				class="fas fa-plus"></i> New
+			</a>
+			
 		<section style="margin: 20px;">
 			<div class="row">
-
 				<div th:each="room : ${rooms}" class="col-sm-3"
 					style="padding: 5px;">
-					<div class="card mb-3 text-center" style="width: 15rem;">
+					<div class="card mb-3 text-center" style="width: 17rem;">
 						<img th:src="@{/../images/studiocartoon.jpg}"
 							class="card-img-top studio_icon mx-auto pt-3"
 							alt="Card image cap">
@@ -47,9 +50,7 @@
 				</div>
 
 			</div>
-			<a th:href="@{'/rooms/new'}" class="btn og_btn"> <i
-				class="fas fa-plus"></i> New
-			</a>
+
 		</section>
 
 	</main>
