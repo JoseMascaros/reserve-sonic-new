@@ -13,7 +13,7 @@ import javax.persistence.Table;
 @Table(name = "districts")
 public class District {
 	@Id
-	@Column(name = "district_id", columnDefinition = "NUMERIC(4)", nullable = false)
+	@Column(name = "district_id", columnDefinition = "NUMERIC(10)", nullable = false)
 	private Integer id;
 
 	@Column(name = "name", length = 50, nullable = false)
