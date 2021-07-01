@@ -27,13 +27,12 @@
 							</h6>
 							<h6 class="card-text"> Price: S/ <span th:text="${reservation.price}"></span></h6>
 							<br>
-							<a th:href="@{'/myReservations/' + ${reservation.id} + '/viewReservation'}"
+							<a th:href="@{'/myReservations/' + ${reservation.id} + '/paymentDetails'}"
 								class="btn edit_btn search"> <i class="fas fa-search mx-3"></i></a>
 							<a th:href="@{'/myReservations/' + ${reservation.id} + '/deleteReservation'}"
 								class="btn btn-danger mx-3"> <i class="fas fa-trash-alt"></i> </a>
 
-							<a th:href="@{'/reviews/new'}" class="btn og_btn">Review <i
-									class="fas fa-check-double mx-3"></i></a>
+
 
 						</div>
 					</div>

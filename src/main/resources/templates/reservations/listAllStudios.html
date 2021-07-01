@@ -6,13 +6,26 @@
 
 <body>
 
-	<div th:replace="./fragments/navbar :: navbar"></div>
+
+	<div th:replace="./fragments/navbar :: navbar">
+	</div>
+
 
 	<main class="col-md-9 ms-sm-auto col-lg-10 px-5">
-			
+
+		<!-- <form th:action="@{'/search/studios'}" th:object="${studioSearch}" method="get">
+			<div class="row mb-4 row-cols-auto">
+
+				<input class="form-control col form-control-light shadow rounded-3 mx-3" type="search"
+					placeholder="Search" aria-label="Search" style="width: 900px;" th:field="*{studios}">
+				<button type="submit" class="btn og_btn mx-3 shadow">Search</button>
+			</div>
+		</form> -->
 		<div class="row">
 			<h2 class="pg_title">Studios Available</h2>
 		</div>
+
+
 		<section style="margin: 20px;">
 			<div class="row">
 
