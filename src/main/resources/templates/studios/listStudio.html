@@ -9,7 +9,59 @@
 	<div th:replace="./fragments/navbar :: navbar"></div>
 
 	<main class="col-md-9 ms-sm-auto col-lg-10 px-5">
-		<div class="container">
+		
+		<div class="row">
+			<h2 class="pg_title">Studios</h2>
+		</div>
+		
+		<a th:href="@{'/studios/new'}" class="btn og_btn"> <i
+			class="fas fa-plus"></i> New
+		</a>
+		
+		<section style="margin: 20px;">
+			<div class="row">
+
+				<div th:each="studio : ${studios}" class="col-sm-3"
+					style="padding: 5px;">
+					<div class="card mb-3 text-center" style="width: 17rem;">
+						<img class="card-img-top studio_icon mx-auto pt-3"
+							th:src="@{/../images/studiocartoon.jpg}" alt="Card image cap">
+						<div class="card-body">
+							<h5 class="card-title">
+								Id: <span th:text="${studio.id}"></span>
+							</h5>
+							<h5 class="card-text">
+								Name: <span th:text="${studio.name}"></span>
+							</h5>
+							<h5 class="card-text">
+								Start Time: <span th:text="${studio.startTime}"></span>
+							</h5>
+							<h5 class="card-text">
+								End Time: <span th:text="${studio.endTime}"></span>
+							</h5>
+							<h5 class="card-text">
+								Price per hour: <span th:text="${studio.pricePerHour}"></span>
+							</h5>
+							<h5 class="card-text">
+								District: <span th:text="${studio.district.name}"></span>
+							</h5>
+							<br> <a
+								th:href="@{'/studios/' + ${studio.id} + '/viewStudio'}"
+								class="btn edit_btn search"> <i class="fas fa-search"></i></a> <a
+								th:href="@{'/studios/' + ${studio.id} + '/editStudio'}"
+								class="btn edit_btn pencil"> <i class="fas fa-pencil-alt"></i>
+							</a> <a th:href="@{'/studios/' + ${studio.id} + '/deleteStudio'}"
+								class="btn btn-danger"> <i class="fas fa-trash-alt"></i>
+							</a>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+		</section>
+
+		<!-- <div class="container">
 			<div class="row">
 				<div class="col">
 
@@ -60,7 +112,7 @@
 					<a th:href="@{'/studios/new'}" class="btn og_btn"> <i class="fas fa-plus"></i> New</a>
 				</div>
 			</div>
-		</div>
+		</div> -->
 	</main>
 	<div th:replace="./fragments/navbar :: javascript"></div>
 </body>
