@@ -17,11 +17,11 @@
 						<h2 class="pg_title pb-4">View Studio</h2>
 					</div>
 
-					<div class="card mb-3 text-center" style="width: 500px;">
+					<div class="card mb-3 text-center shadow border-0 rounded-3" style="width: 500px;">
 						<img class="card-img-top studio_icon mx-auto pt-3" th:src="@{/../images/studiocartoon.jpg}"
 							alt="Card image cap">
 						<div class="card-body">
-								<h5 class="card-title">
+							<h5 class="card-title">
 								Id: <span th:text="${studio.id}"></span>
 							</h5>
 							<h5 class="card-text">
@@ -33,10 +33,10 @@
 							<h5 class="card-text">
 								End Time: <span th:text="${studio.endTime}"></span>
 							</h5>
-							<h5 class="card-text"> 
+							<h5 class="card-text">
 								Price per hour: <span th:text="${studio.pricePerHour}"></span>
 							</h5>
-							<h5 class="card-text"> 
+							<h5 class="card-text">
 								District: <span th:text="${studio.district.name}"></span>
 							</h5>
 						</div>
