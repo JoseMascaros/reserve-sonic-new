@@ -17,8 +17,8 @@
 						<h2 class="pg_title pb-4">View Reservation</h2>
 					</div>
 
-					<div class="card mb-3 text-center" style="width: 500px;">
-						<img class="card-img-top studio_icon mx-auto pt-3" th:src="@{/../images/studiocartoon.jpg}"
+					<div class="card mb-3 text-center shadow border-0 rounded-3" style="width: 500px;">
+						<img class="card-img-top studio_icon mx-auto pt-3 " th:src="@{/../images/studiocartoon.jpg}"
 							alt="Card image cap">
 						<div class="card-body">
 							<h5 class="card-title"> Id: <span th:text="${reservation.id}"></span> </h5>
@@ -29,12 +29,26 @@
 							<h5 class="card-text"> Hours: <span th:text="${reservation.hour}"></span></h5>
 							<h5 class="card-text"> Final Price: <span th:text="${reservation.price}"></span></h5>
 						</div>
+						<div class="row py-4">
+
+							<div class="col">
+								<a th:href="@{'/reviews/new'}" class="btn og_btn" style="width: 140px;">Review <i
+										class="fas fa-angle-left mx-3"></i></a>
+							</div>
+							<div class="col">
+								<a th:href="@{'/myReservations/' + ${reservation.id} + '/paymentDetails'}"
+									class="btn btn-dark" style="width: 100px;">
+									<i class="fas fa-angle-double-right"></i> Pay
+								</a>
+							</div>
+						</div>
 					</div>
 
 					<div class="pt-3">
-						<a th:href="@{/myReservations}" class="btn og_btn" style="width: 500px;">
+						<a th:href="@{/myReservations}" class="btn og_btn" style="width: 100px;">
 							<i class="fas fa-angle-double-left"></i> Return
 						</a>
+
 					</div>
 
 

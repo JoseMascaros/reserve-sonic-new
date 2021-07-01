@@ -10,25 +10,28 @@
 
 	<main class="col-md-9 ms-sm-auto col-lg-10 px-5">
 
-		<div class="row">
-			<h2 class="pg_title">Rooms</h2>
+		<div class="row row-cols-auto">
+			<div class="col">
+				<h2 class="pg_title">Rooms</h2>
+			</div>
+
+			<div class="col">
+				<!-- NEW -->
+				<a th:href="@{'/rooms/new'}" class="btn og_btn"> <i class="fas fa-plus"></i> New
+				</a>
+			</div>
 		</div>
-		<a th:href="@{'/rooms/new'}" class="btn og_btn"> <i
-				class="fas fa-plus"></i> New
-			</a>
-			
+
 		<section style="margin: 20px;">
 			<div class="row">
-				<div th:each="room : ${rooms}" class="col-sm-3"
-					style="padding: 5px;">
-					<div class="card mb-3 text-center" style="width: 17rem;">
-						<img th:src="@{/../images/studiocartoon.jpg}"
-							class="card-img-top studio_icon mx-auto pt-3"
+				<div th:each="room : ${rooms}" class="col-sm-3" style="padding: 5px;">
+					<div class="card mb-3 text-center shadow border-0 rounded-3" style="width: 17rem;">
+						<img th:src="@{/../images/studiocartoon.jpg}" class="card-img-top studio_icon mx-auto pt-3"
 							alt="Card image cap">
 						<div class="card-body">
-							<h5 class="card-title">
+							<!-- <h5 class="card-title">
 								ID: <span th:text="${room.id}"></span>
-							</h5>
+							</h5> -->
 							<h6 class="card-text">
 								Studio: <span th:text="${room.studio.name}"></span>
 							</h6>
@@ -38,12 +41,14 @@
 							<h6 class="card-text">
 								Capacity: <span th:text="${room.capacity}"></span>
 							</h6>
-							<br> <a th:href="@{'/rooms/' + ${room.id} + '/viewRoom'}"
-								class="btn edit_btn search"> <i class="fas fa-search"></i></a> <a
-								th:href="@{'/rooms/' + ${room.id} + '/editRoom'}"
-								class="btn edit_btn pencil"> <i class="fas fa-pencil-alt"></i>
-							</a> <a th:href="@{'/rooms/' + ${room.id} + '/deleteRoom'}"
-								class="btn btn-danger"> <i class="fas fa-trash-alt"></i>
+							<br>
+							<a th:href="@{'/rooms/' + ${room.id} + '/viewRoom'}" class="btn edit_btn search mx-3">
+								<i class="fas fa-search"></i></a>
+							<a th:href="@{'/rooms/' + ${room.id} + '/editRoom'}" class="btn edit_btn pencil mx-3"> <i
+									class="fas fa-pencil-alt"></i>
+							</a>
+							<a th:href="@{'/rooms/' + ${room.id} + '/deleteRoom'}" class="btn btn-danger mx-3"> <i
+									class="fas fa-trash-alt"></i>
 							</a>
 						</div>
 					</div>

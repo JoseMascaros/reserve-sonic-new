@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import pe.edu.upc.reservesonic.model.entity.Instrument;
 import pe.edu.upc.reservesonic.model.entity.Room;
+import pe.edu.upc.reservesonic.model.repository.InstrumentRepository;
 import pe.edu.upc.reservesonic.service.crud.InstrumentService;
 import pe.edu.upc.reservesonic.service.crud.RoomService;
 
@@ -24,7 +25,7 @@ import pe.edu.upc.reservesonic.service.crud.RoomService;
 public class InstrumentController {
 	@Autowired
 	private InstrumentService instrumentService;
-	
+
 	@Autowired
 	private RoomService roomService;
 
@@ -37,7 +38,6 @@ public class InstrumentController {
 			e.printStackTrace();
 			System.err.println(e.getMessage());
 		}
-
 		return "instruments/listInstrument";
 	}
 
@@ -46,7 +46,7 @@ public class InstrumentController {
 		try {
 			Instrument instrumentReturn = instrumentService.update(instrument);
 			model.addAttribute("instrument", instrumentReturn);
-			//return "instruments/viewInstrument";
+			// return "instruments/viewInstrument";
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.err.println(e.getMessage());
@@ -75,7 +75,7 @@ public class InstrumentController {
 		try {
 			Instrument instrumentReturn = instrumentService.create(instrument);
 			model.addAttribute("instrument", instrumentReturn);
-			//return "instruments/viewInstrument";
+			// return "instruments/viewInstrument";
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.err.println(e.getMessage());
@@ -116,14 +116,14 @@ public class InstrumentController {
 		}
 		return "redirect:/instruments";
 	}
-	
+
 	@GetMapping("{id}/deleteInstrument")
-	public String deleteInstrument(@PathVariable("id") Integer id ) {
+	public String deleteInstrument(@PathVariable("id") Integer id) {
 		try {
 			Optional<Instrument> optional = instrumentService.findById(id);
 			if (optional.isPresent()) {
 				instrumentService.deleteById(id);
-			}			
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.err.println(e.getMessage());

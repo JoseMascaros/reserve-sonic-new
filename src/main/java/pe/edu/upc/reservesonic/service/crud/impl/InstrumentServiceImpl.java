@@ -13,7 +13,7 @@ public class InstrumentServiceImpl implements InstrumentService {
 
 	@Autowired
 	private InstrumentRepository instrumentRepository;
-	
+
 	@Override
 	public JpaRepository<Instrument, Integer> getRepository() {
 		return instrumentRepository;

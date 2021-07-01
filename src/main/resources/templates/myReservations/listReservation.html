@@ -17,20 +17,23 @@
 			<div class="row">
 
 				<div th:each="reservation : ${reservations}" class="col-sm-3" style="padding: 5px;">
-					<div class="card mb-3 text-center" style="width: 17rem;">
+					<div class="card mb-3 text-center shadow border-0 rounded-3" style="width: 17rem;">
 						<img th:src="@{/../images/studiocartoon.jpg}" class="card-img-top studio_icon mx-auto pt-3"
 							alt="Card image cap">
 						<div class="card-body">
 							<h6 class="card-text"> Room: <span th:text="${reservation.room.roomNumber}"></span></h6>
 							<h6 class="card-text"> Studio: <span th:text="${reservation.room.studio.name}"></span></h6>
-							<h6 class="card-text"> Reservation Date: <span th:text="${reservation.startDate}"></span></h6>
+							<h6 class="card-text"> Reservation Date: <span th:text="${reservation.startDate}"></span>
+							</h6>
 							<h6 class="card-text"> Price: S/ <span th:text="${reservation.price}"></span></h6>
 							<br>
-							<a th:href="@{'/myReservations/' + ${reservation.id} + '/viewReservation'}" class="btn edit_btn search"> <i class="fas fa-search"></i></a>
-							<a th:href="@{'/myReservations/' + ${reservation.id} + '/deleteReservation'}" class="btn btn-danger"> <i class="fas fa-trash-alt"></i> </a>
-							
-							<a th:href="@{'/reviews/new'}"  class="btn og_btn">Review <i class="fas fa-check-double"></i></a>
-						
+							<a th:href="@{'/myReservations/' + ${reservation.id} + '/paymentDetails'}"
+								class="btn edit_btn search"> <i class="fas fa-search mx-3"></i></a>
+							<a th:href="@{'/myReservations/' + ${reservation.id} + '/deleteReservation'}"
+								class="btn btn-danger mx-3"> <i class="fas fa-trash-alt"></i> </a>
+
+
+
 						</div>
 					</div>
 				</div>

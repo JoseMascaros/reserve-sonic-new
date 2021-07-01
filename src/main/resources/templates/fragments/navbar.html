@@ -19,7 +19,21 @@
     <!-- Style POPUP CSS -->
     <link rel="stylesheet" th:href="@{css/RegisterPopup.css}">
 </head>
+<style>
+    .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+    }
 
+    @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+            font-size: 3.5rem;
+        }
+    }
+</style>
 <div th:fragment="navbar">
     <header class="navbar navbar-light sticky-top flex-md-nowrap ps-3">
         <a class="col-md-3 col-lg-2 me-0 px-3 pt-3 ps-5" th:href="@{'/dashboard'}">
@@ -33,12 +47,20 @@
             aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-                
+
     </header>
+
+    <!-- 
+    <form class="d-flex" th:action="@{'/search/studios'}" th:object="${studiosSearch}" method="get">
+        <input class="form-control me-2" type="search" th:field="*{studios}" placeholder="Search Employee"
+            aria-label="Search">
+        <button class="btn btn-warning" type="submit"><i class="fas fa-search"></i></button>
+    </form> -->
 
     <div class="container-fluid">
         <div class="row">
-            <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block sidebar collapse ps-5">
+            <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block sidebar collapse ps-5 shadow"
+                style="background-color: white;">
                 <div class="position-sticky pt-5">
                     <ul class="nav flex-column">
                         <li class="nav-item">
@@ -86,13 +108,22 @@
                         <li class="nav-item">
                             <a class="nav-link" th:href="@{'/reviews'}">
                                 <span data-feather="bar-chart-2"></span>
-                                Reports
+                                Reviews
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">
                                 <span data-feather="settings"></span>
                                 Settings
+                            </a>
+                        </li>
+                        <li class="fixed-bottom pb-3">
+                            <a class="nav-link" href="#">
+                                <span><img
+                                        th:src=@{https://cosasbucket.s3.amazonaws.com/wp-content/uploads/2021/02/25174351/dua-lipa-attends-varietys-2nd-annual-hitmakers-brunch-at-news-photo-1604677508.jpg}
+                                        alt="" class="rounded-circle ms-5 me-3"
+                                        style="max-width: 60px; height: auto;"></span>
+                                Dua Lipa
                             </a>
                         </li>
                     </ul>
@@ -119,4 +150,7 @@
         crossorigin="anonymous"></script>
     <script th:src="@{../../js/dashboard.js}"></script>
     <script th:src="@{/bootstrap/js/bootstrap.bundle.min.js}"></script>
+    <script th:src="@{https://code.jquery.com/jquery-1.12.4.js}"></script>
+    <script th:src="@{https://code.jquery.com/ui/1.12.1/jquery-ui.js}"></script>
+
 </div>

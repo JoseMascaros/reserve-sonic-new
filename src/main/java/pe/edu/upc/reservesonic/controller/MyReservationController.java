@@ -17,7 +17,6 @@ import pe.edu.upc.reservesonic.service.crud.ReservationService;
 @RequestMapping("/myReservations")
 public class MyReservationController {
 
-
 	@Autowired
 	private ReservationService reservationService;
 
@@ -33,12 +32,12 @@ public class MyReservationController {
 		}
 		return "myReservations/listReservation";
 	}
-	
+
 	@GetMapping("{id}/viewReservation")
 	public String findById(Model model, @PathVariable("id") Integer id) {
 		try {
 			Optional<Reservation> optional = reservationService.findById(id);
-			if(optional.isPresent()) {
+			if (optional.isPresent()) {
 				model.addAttribute("reservation", optional.get());
 				return "myReservations/viewReservation";
 			}
@@ -49,6 +48,36 @@ public class MyReservationController {
 		}
 		return "redirect:/myReservations";
 	}
-	
-	
+
+	@GetMapping("{id}/paymentDetails")
+	public String paymentDetails(Model model, @PathVariable("id") Integer id) {
+		try {
+			Optional<Reservation> optional = reservationService.findById(id);
+			if (optional.isPresent()) {
+				model.addAttribute("reservation", optional.get());
+				return "myReservations/paymentDetails";
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			System.err.println(e.getMessage());
+		}
+		return "redirect:/myReservations";
+	}
+
+	@GetMapping("{id}/done")
+	public String donePayment(Model model, @PathVariable("id") Integer id) {
+		try {
+			Optional<Reservation> optional = reservationService.findById(id);
+			if (optional.isPresent()) {
+				model.addAttribute("reservation", optional.get());
+				return "myReservations/done";
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			System.err.println(e.getMessage());
+		}
+		return "redirect:/myReservations";
+	}
 }

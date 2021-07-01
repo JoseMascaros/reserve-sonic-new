@@ -16,11 +16,9 @@
 		<section style="margin: 20px;">
 			<div class="row">
 
-				<div th:each="review : ${reviews}" class="col-sm-3"
-					style="padding: 5px;">
-					<div class="card mb-3 text-center" style="width: 15rem;">
-						<img th:src="@{/../images/studiocartoon.jpg}"
-							class="card-img-top studio_icon mx-auto pt-3"
+				<div th:each="review : ${reviews}" class="col-sm-3" style="padding: 5px;">
+					<div class="card mb-3 text-center shadow border-0 rounded-3" style="width: 15rem;">
+						<img th:src="@{/../images/studiocartoon.jpg}" class="card-img-top studio_icon mx-auto pt-3"
 							alt="Card image cap">
 						<div class="card-body">
 							<h5 class="card-title">
