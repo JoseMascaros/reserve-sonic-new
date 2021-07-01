@@ -6,16 +6,27 @@
 
 <body>
 
-	<div th:replace="./fragments/navbar :: navbar"></div>
+	<div th:replace="./fragments/navbar :: navbar">
+
+
+	</div>
+
 
 	<main class="col-md-9 ms-sm-auto col-lg-10 px-5">
 
-		<div class="row">
-			<h2 class="pg_title">Studios</h2>
+		<div class="row row-cols-auto">
+			<div class="col">
+				<h2 class="pg_title">Studios</h2>
+			</div>
+
+			<div class="col">
+				<!-- NEW -->
+				<a th:href="@{'/studios/new'}" class="btn og_btn"> <i class="fas fa-plus"></i> New
+				</a>
+			</div>
 		</div>
 
-		<a th:href="@{'/studios/new'}" class="btn og_btn"> <i class="fas fa-plus"></i> New
-		</a>
+
 
 		<section style="margin: 20px;">
 			<div class="row">
@@ -43,13 +54,17 @@
 							<h5 class="card-text">
 								District: <span th:text="${studio.district.name}"></span>
 							</h5>
-							<br> <a th:href="@{'/studios/' + ${studio.id} + '/viewStudio'}"
-								class="btn edit_btn search mx-3">
-								<i class="fas fa-search"></i></a> <a
-								th:href="@{'/studios/' + ${studio.id} + '/editStudio'}"
-								class="btn edit_btn pencil mx-3"> <i class="fas fa-pencil-alt"></i>
-							</a> <a th:href="@{'/studios/' + ${studio.id} + '/deleteStudio'}"
-								class="btn btn-danger mx-3"> <i class="fas fa-trash-alt"></i>
+							<br>
+							<!-- VIEW -->
+							<a th:href="@{'/studios/' + ${studio.id} + '/viewStudio'}" class="btn edit_btn search mx-3">
+								<i class="fas fa-search"></i></a>
+							<!-- EDIT -->
+							<a th:href="@{'/studios/' + ${studio.id} + '/editStudio'}" class="btn edit_btn pencil mx-3">
+								<i class="fas fa-pencil-alt"></i>
+							</a>
+							<!-- DELETE -->
+							<a th:href="@{'/studios/' + ${studio.id} + '/deleteStudio'}" class="btn btn-danger mx-3"> <i
+									class="fas fa-trash-alt"></i>
 							</a>
 						</div>
 					</div>

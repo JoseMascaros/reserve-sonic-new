@@ -10,11 +10,17 @@
 
 	<main class="col-md-9 ms-sm-auto col-lg-10 px-5">
 
-		<div class="row">
-			<h2 class="pg_title">Rooms</h2>
+		<div class="row row-cols-auto">
+			<div class="col">
+				<h2 class="pg_title">Rooms</h2>
+			</div>
+
+			<div class="col">
+				<!-- NEW -->
+				<a th:href="@{'/rooms/new'}" class="btn og_btn"> <i class="fas fa-plus"></i> New
+				</a>
+			</div>
 		</div>
-		<a th:href="@{'/rooms/new'}" class="btn og_btn"> <i class="fas fa-plus"></i> New
-		</a>
 
 		<section style="margin: 20px;">
 			<div class="row">

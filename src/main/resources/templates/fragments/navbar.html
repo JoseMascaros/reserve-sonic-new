@@ -47,6 +47,9 @@
             aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
+        <!-- SEARCH -->
+        <input class="form-control form-control-light w-100 shadow" type="text" placeholder="Search" aria-label="Search"
+            id="myInput">
     </header>
 
     <div class="container-fluid">
@@ -142,4 +145,14 @@
         crossorigin="anonymous"></script>
     <script th:src="@{../../js/dashboard.js}"></script>
     <script th:src="@{/bootstrap/js/bootstrap.bundle.min.js}"></script>
+    <script th:src="@{https://code.jquery.com/jquery-1.12.4.js}"></script>
+    <script th:src="@{https://code.jquery.com/ui/1.12.1/jquery-ui.js}"></script>
+    <script>
+        var input = document.getElementById("myInput");
+        input.addEventListener('keyup', function (event) {
+            if (event.keyCode === 13) {
+                alert('FUNCIONA');
+            }
+        });
+    </script>
 </div>
