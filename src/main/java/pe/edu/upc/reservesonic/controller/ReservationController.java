@@ -19,22 +19,21 @@ import pe.edu.upc.reservesonic.service.crud.ReservationService;
 import pe.edu.upc.reservesonic.service.crud.RoomService;
 import pe.edu.upc.reservesonic.service.crud.StudioService;
 
-
 @Controller
 @RequestMapping("/reservations")
 public class ReservationController {
-	
+
 	Studio studioaux;
 
 	@Autowired
 	private ReservationService reservationService;
-	
+
 	@Autowired
 	private StudioService studioService;
-	
+
 	@Autowired
 	private RoomService roomService;
-	
+
 	@GetMapping
 	public String listStudios(Model model) {
 		try {
@@ -47,29 +46,28 @@ public class ReservationController {
 		}
 		return "reservations/listAllStudios";
 	}
-	
 
 	@GetMapping("studios")
-	public String searchStudios(Model model, @ModelAttribute("studioSearch") Studio studioSearch) {
+	public String studioSearch(Model model, @ModelAttribute("studioSearch") Studio studioSearch) {
 		studioSearch.setName(studioSearch.getName());
-		List<Studio> studios = null;
+		List<Studio> studiosFound = null;
 		try {
-			studios = studioService.findByName(studioSearch.getName());
+			studiosFound = studioService.findByName(studioSearch.getName());
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
 		}
-		model.addAttribute("studios", studios);
+		model.addAttribute("studiosFound", studiosFound);
 		model.addAttribute("studioSearch", studioSearch);
 		return "reservations/studios-result";
 	}
-	
-	//reserva una sala
+
+	// reserva una sala
 	@GetMapping("new/{id}")
-	public String newItem(Model model, @PathVariable("id") Integer id ) {
+	public String newItem(Model model, @PathVariable("id") Integer id) {
 		try {
 			Optional<Studio> optional = studioService.findById(id);
-			if(optional.isPresent()) {
+			if (optional.isPresent()) {
 				Reservation reservation = new Reservation();
 				List<Room> listRooms = roomService.findByStudio(optional.get());
 				studioaux = optional.get();
@@ -98,15 +96,14 @@ public class ReservationController {
 		}
 		return "redirect:/myReservations";
 	}
-	
 
 	@GetMapping("{id}/deleteReservation")
-	public String deleteStudio(@PathVariable("id") Integer id ) {
+	public String deleteStudio(@PathVariable("id") Integer id) {
 		try {
 			Optional<Reservation> optional = reservationService.findById(id);
 			if (optional.isPresent()) {
 				reservationService.deleteById(id);
-			}			
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.err.println(e.getMessage());

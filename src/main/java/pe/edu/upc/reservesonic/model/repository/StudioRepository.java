@@ -11,4 +11,6 @@ import pe.edu.upc.reservesonic.model.entity.Studio;
 public interface StudioRepository extends JpaRepository<Studio, Integer> {
 
 	public List<Studio> findByName(String name);
+
+	public List<Studio> findByNameStartingWith(String name);
 }
