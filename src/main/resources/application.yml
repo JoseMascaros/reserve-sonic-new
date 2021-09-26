@@ -8,7 +8,7 @@ spring:
     driver-class-name: org.postgresql.Driver
     url: jdbc:postgresql://localhost:5432/reservesonic
     username: postgres
-    password: fuck
+    password: postgresql20211
   jpa:
     database: postgresql
     hibernate:
